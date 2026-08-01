@@ -5,7 +5,10 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { siteConfig } from "@/lib/site";
+import { getSiteMode } from "@/lib/site-mode";
 import "./globals.css";
+
+export const dynamic = "force-dynamic";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -18,7 +21,7 @@ const playfair = Playfair_Display({
   weight: ["400", "600", "700"],
 });
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} | Ecommerce fulfilment partner`,
@@ -33,6 +36,28 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
   },
 };
+
+export function generateMetadata(): Metadata {
+  if (getSiteMode() === "preview") {
+    return {
+      ...baseMetadata,
+      robots: {
+        index: false,
+        follow: false,
+        noarchive: true,
+        noimageindex: true,
+        googleBot: {
+          index: false,
+          follow: false,
+          noarchive: true,
+          noimageindex: true,
+        },
+      },
+    };
+  }
+
+  return baseMetadata;
+}
 
 export default function RootLayout({
   children,

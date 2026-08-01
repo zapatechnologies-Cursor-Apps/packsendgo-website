@@ -733,6 +733,43 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 ## Phase 10 — Hostinger deployment and launch
 
+**Phase 10A status: PRIVATE HOSTINGER PREVIEW PREPARED — DEPLOYMENT AND HOSTED INTEGRATIONS PENDING**
+
+### Phase 10A — Private Hostinger preview preparation
+
+#### Authority check
+
+- [x] Private-preview visibility model implemented (`SITE_MODE`, preview default)
+- [x] Preview metadata uses noindex/nofollow
+- [x] Preview robots disallows crawling
+- [x] Node.js deployment version declared
+- [x] Hostinger Git deployment settings documented
+- [x] Private-preview environment-variable matrix documented
+
+#### Validation (Phase 10A)
+
+- [x] Lint passed
+- [x] Typecheck passed
+- [x] Production build passed
+
+#### Deferred (Phase 10A — remain incomplete)
+
+- [ ] Hostinger GitHub connection
+- [ ] First Hostinger deployment
+- [ ] Hostinger temporary-domain validation
+- [ ] Automatic redeployment validation
+- [ ] Hostinger MySQL
+- [ ] Hosted migration
+- [ ] Hosted quotation persistence
+- [ ] Hosted email
+- [ ] Live Turnstile
+- [ ] Production rate limiting
+- [ ] Custom domain
+- [ ] SSL/domain validation
+- [ ] Light-mode correction
+- [ ] Public indexing
+- [ ] Public launch
+
 ### Authority check
 
 - [ ] Deployment aligned with `docs/07_HOSTINGER_DEPLOYMENT_PLAN.md`
