@@ -243,10 +243,50 @@ Report: `docs/phase-reports/PHASE_2B_HOMEPAGE_IMPLEMENTATION_REPORT.md`
 - [x] Product Owner current SVG logo acceptance
 - [x] Product Owner Phase 2B acceptance (2026-08-01)
 - [ ] Real warehouse media
-- [ ] Quote form and backend
 - [ ] Legal-page implementation
 - [ ] Confirmed contact and company details
 - [ ] Production deployment
+
+### Phase 3A — Quotation form preflight and implementation
+
+**Phase 3A implementation: READY TO BEGIN — 2026-08-01**
+
+Report: `docs/phase-reports/PHASE_3A_QUOTATION_FORM_PREFLIGHT_AUDIT.md`
+
+#### Preflight and planning (complete)
+
+- [x] Quotation-form authority reviewed
+- [x] Current CTA routing audited
+- [x] Exact five-step structure confirmed
+- [x] Field register completed
+- [x] Validation architecture approved
+- [x] Prisma/MySQL persistence architecture approved
+- [x] Email-delivery architecture approved
+- [x] Turnstile and abuse-control architecture approved
+- [x] Upload exclusion confirmed
+- [x] Product Owner implementation decisions recorded
+- [x] Phase 3A preflight audit accepted (2026-08-01)
+
+#### Implementation (incomplete)
+
+- [ ] Packages installed (`zod`, `react-hook-form`, `prisma`, `@prisma/client`)
+- [ ] Prisma schema created
+- [ ] Database migration created or applied
+- [ ] Quotation route implemented (`/get-a-quote`)
+- [ ] Quotation UI implemented
+- [ ] Conditional fields implemented
+- [ ] Client validation implemented
+- [ ] Server validation implemented
+- [ ] Database submission implemented
+- [ ] Email delivery implemented
+- [ ] Turnstile implemented
+- [ ] Rate limiting implemented
+- [ ] Privacy Policy implemented
+- [ ] Product Owner browser validation
+- [ ] Production credentials configured
+- [ ] Production deployment
+
+Do not mark Phase 3A implementation complete until Product Owner browser validation and production blockers are resolved.
 
 ### Phase 2B / Phase 3 — Remaining deferred work
 
