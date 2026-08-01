@@ -171,53 +171,66 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ## Phase 2 — Next.js foundation
 
-**Status: READY TO BEGIN** (accepted 2026-08-01)
+**Phase 2A status: COMPLETE — ACCEPTED 2026-08-01**
 
-Phase 2 implementation tasks are **not** complete. The following entry conditions apply before and during Phase 2:
+Phase 2 overall is **not** complete. Phase 2A foundation is accepted; remaining homepage, hero and deployment work is deferred.
 
-- Next.js foundation must be initialised on the current `feature/frontend-foundation` branch
-- Hostinger-compatible Node deployment assumptions must be validated without locking an unsupported exact runtime version
-- The selected Stitch design and handoff documents govern frontend composition
-- The separate Three.js asset (`d7229de0d31345ecb11e475ae8a1020b`) governs hero scene behaviour
-- Mobile must be deliberately designed in code and not treated as a scaled desktop crop
-- No customer portal, login, payments, tracking or live pricing may be introduced
-- Cursor must not run Git commands
+Report: `docs/phase-reports/PHASE_2A_FRONTEND_FOUNDATION_REPORT.md`
+
+### Phase 2A — Foundation (complete where marked)
+
+- [x] Next.js foundation initialised (App Router)
+- [x] App Router established
+- [x] TypeScript strict mode configured
+- [x] Tailwind CSS configured
+- [x] ESLint configured
+- [ ] Formatting configured
+- [x] `.env.example` created (no secrets)
+- [x] Route shell and root layout
+- [x] Metadata foundation
+- [x] Shared component foundation (header, footer shell)
+- [x] Playfair Display and Geist configured
+- [x] Semantic design tokens established
+- [x] System, Light and Dark theme architecture established
+- [x] Three.js dependencies installed
+- [x] Three.js client-side integration boundary established
+- [x] Hostinger-compatible build verified locally
+- [x] Automated validation passing (lint, typecheck, build)
+
+### Phase 2A validation
+
+- [x] Build succeeds
+- [x] Lint passes
+- [x] Type check passes
+- [x] Root route browser review (Product Owner)
+- [x] Layout responsive at key breakpoints (Product Owner)
+- [x] Root layout usable on mobile viewport (Product Owner)
+- [x] Product Owner desktop browser validation
+- [x] Product Owner mobile browser validation (approximately 390 × 844)
+- [x] Product Owner theme validation (System / Light / Dark with persistence)
+
+### Phase 2B / Phase 3 — Deferred (incomplete)
+
+- [ ] Selected Stitch homepage implementation
+- [ ] Real Three.js warehouse hero
+- [ ] Sharp lime route line
+- [ ] Moving lime parcel box
+- [ ] Production logo SVGs
+- [ ] Compact production theme menu
+- [ ] Complete responsive homepage
+- [ ] Final mobile visual acceptance for the completed homepage
+- [ ] Quote form
+- [ ] Legal pages
+- [ ] Real warehouse media
+- [ ] Production deployment
 
 ### Authority check
 
-- [ ] Implementation aligned with `docs/03_TECHNICAL_ARCHITECTURE.md`
-
-### Implementation tasks
-
-- [ ] Next.js initialised (App Router)
-- [ ] TypeScript configured
-- [ ] Tailwind CSS configured
-- [ ] Linting configured
-- [ ] Formatting configured
-- [ ] `.env.example` created (no secrets)
-- [ ] Route shell and root layout
-- [ ] Metadata foundation
-- [ ] Shared component foundation (header, footer shell)
-- [ ] Hostinger-compatible build verified locally
-- [ ] Automated validation passing
-
-### Validation
-
-- [ ] Build succeeds
-- [ ] Lint passes
-- [ ] Type check passes
-
-### Browser validation
-
-- [ ] Root route renders
-- [ ] Layout responsive at key breakpoints
-
-### Mobile validation
-
-- [ ] Root layout usable on mobile viewport
+- [x] Implementation aligned with `docs/03_TECHNICAL_ARCHITECTURE.md`
 
 ### Documentation update
 
+- [x] Phase 2A foundation report created
 - [ ] Architecture and deployment docs updated if needed
 
 ### Git (Product Owner only)
@@ -226,7 +239,7 @@ Phase 2 implementation tasks are **not** complete. The following entry condition
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner Phase 2A acceptance (2026-08-01)
 
 ---
 
