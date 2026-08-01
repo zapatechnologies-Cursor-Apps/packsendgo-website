@@ -6,6 +6,10 @@ export const capabilities = [
       "End-to-end order handling from inbound stock to customer delivery, aligned to your sales channels and growth plans.",
     benefit: "Clearer operational control as order volumes increase.",
     href: "/services#ecommerce-fulfilment",
+    image: "/images/homepage/capability-ecommerce-fulfilment.jpg",
+    imageAlt:
+      "Warehouse team preparing boxed orders and pallets for fulfilment",
+    objectPosition: "center 35%",
   },
   {
     id: "warehousing-storage",
@@ -14,6 +18,9 @@ export const capabilities = [
       "Structured storage for your products with receiving, indexing and stock organisation suited to your catalogue.",
     benefit: "More predictable stock handling without fixed warehouse overheads.",
     href: "/services#warehousing",
+    image: "/images/homepage/capability-warehousing-storage.jpg",
+    imageAlt: "Organised warehouse shelving holding boxed stock and pallets",
+    objectPosition: "center center",
   },
   {
     id: "pick-and-pack",
@@ -22,6 +29,10 @@ export const capabilities = [
       "Accurate picking and careful packing tailored to your products, packaging requirements and dispatch standards.",
     benefit: "Consistent presentation and fewer handling errors at dispatch.",
     href: "/services#pick-and-pack",
+    image: "/images/homepage/capability-pick-and-pack.jpg",
+    imageAlt:
+      "Hands sorting and preparing inventory at a warehouse packing station",
+    objectPosition: "center 40%",
   },
   {
     id: "parcel-dispatch",
@@ -30,6 +41,10 @@ export const capabilities = [
       "Reliable parcel dispatch with agreed cut-offs, carrier selection and delivery coverage confirmed during onboarding.",
     benefit: "A clearer dispatch rhythm for your customer promise.",
     href: "/services#dispatch",
+    image: "/images/homepage/capability-parcel-dispatch.jpg",
+    imageAlt:
+      "Delivery team loading boxed parcels into a dispatch vehicle",
+    objectPosition: "center 45%",
   },
   {
     id: "returns-processing",
@@ -38,8 +53,18 @@ export const capabilities = [
       "Structured returns handling with inspection, restocking or disposal workflows agreed for your operation.",
     benefit: "More controlled returns without disrupting fulfilment flow.",
     href: "/services#returns",
+    image: "/images/homepage/capability-returns-processing.jpg",
+    imageAlt:
+      "Warehouse worker inspecting boxed parcels during stock processing",
+    objectPosition: "center 40%",
   },
 ] as const;
+
+export const warehouseTourImage = {
+  src: "/images/homepage/warehouse-tour-placeholder.jpg",
+  alt: "Wide warehouse aisle with tall shelving and organised stock",
+  objectPosition: "center center",
+} as const;
 
 export const processStages = [
   {

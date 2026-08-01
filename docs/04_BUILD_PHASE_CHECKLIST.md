@@ -247,6 +247,34 @@ Report: `docs/phase-reports/PHASE_2B_HOMEPAGE_IMPLEMENTATION_REPORT.md`
 - [ ] Confirmed contact and company details
 - [ ] Production deployment
 
+### Phase 3 — Homepage media refinement (stock placeholders)
+
+**Status: PRIVATE HOSTINGER PREVIEW APPROVED — LIGHT MODE AND GENUINE FACILITY MEDIA DEFERRED — 2026-08-01**
+
+Report: `docs/phase-reports/PHASE_3_HOMEPAGE_MEDIA_REFINEMENT_REPORT.md`
+
+- [x] Three.js hero visibility refinement
+- [x] Five Core Capabilities stock images inserted
+- [x] Tour our warehouse stock placeholder inserted
+- [x] Local image assets used (no hotlinking)
+- [x] Image sources recorded in asset register
+- [x] Dark desktop validation (Product Owner) — **PASSED — 2026-08-01**
+- [x] Dark mobile validation (Product Owner) — **PASSED — 2026-08-01**
+- [x] Automated lint passed
+- [x] Automated typecheck passed
+- [x] Production build passed (`npm run build`) — **PASSED — 2026-08-01**
+- [x] Product Owner private-preview acceptance — **ACCEPTED WITH CONDITIONS — 2026-08-01**
+
+**Still incomplete:**
+
+- [ ] Light-mode contrast correction
+- [ ] Light-mode Product Owner acceptance
+- [ ] Genuine PackSendGo warehouse photography
+- [ ] Real warehouse video
+- [ ] Matterport or 360 tour
+- [ ] Final Phase 6 real-media acceptance
+- [ ] Public production launch
+
 ### Phase 3A — Quotation form preflight and implementation
 
 **Phase 3A status: IMPLEMENTED LOCALLY — DATABASE-BACKED PERSISTENCE VALIDATED — STAGING AND PRODUCTION PENDING — 2026-08-01**

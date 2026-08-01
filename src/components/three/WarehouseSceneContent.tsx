@@ -37,19 +37,19 @@ function WarehouseRack({ position }: { position: [number, number, number] }) {
       ].map(([x, z], index) => (
         <mesh key={`pillar-${index}`} position={[x, 1.5, z]}>
           <boxGeometry args={[0.1, 3, 0.1]} />
-          <meshStandardMaterial color="#3a424d" metalness={0.15} roughness={0.65} />
+          <meshStandardMaterial color="#4d5866" metalness={0.18} roughness={0.58} />
         </mesh>
       ))}
       {[0, 1, 2].map((level) => (
         <group key={`level-${level}`}>
           <mesh position={[0, level + 0.5, 0]}>
             <boxGeometry args={[2, 0.05, 1]} />
-            <meshStandardMaterial color="#343b46" metalness={0.1} roughness={0.7} />
+            <meshStandardMaterial color="#434c59" metalness={0.12} roughness={0.62} />
           </mesh>
           {[-1, 0, 1].map((offset) => (
             <mesh key={`box-${level}-${offset}`} position={[offset * 0.6, level + 0.7, 0]}>
               <boxGeometry args={[0.5, 0.4, 0.6]} />
-              <meshStandardMaterial color="#5c6775" metalness={0.05} roughness={0.82} />
+              <meshStandardMaterial color="#6d7888" metalness={0.08} roughness={0.74} />
             </mesh>
           ))}
         </group>
@@ -82,10 +82,10 @@ function FloorGrid() {
         <Line
           key={`grid-${index}`}
           points={points}
-          color="#2a313b"
+          color="#3d4856"
           lineWidth={1}
           transparent
-          opacity={0.55}
+          opacity={0.68}
         />
       ))}
       <Line
@@ -93,30 +93,30 @@ function FloorGrid() {
           [-10, 0.03, 5],
           [10, 0.03, 5],
         ]}
-        color="#3d4654"
+        color="#4f5a68"
         lineWidth={1.5}
         transparent
-        opacity={0.7}
+        opacity={0.82}
       />
       <Line
         points={[
           [-2, 0.03, 5],
           [-2, 0.03, -5],
         ]}
-        color="#3d4654"
+        color="#4f5a68"
         lineWidth={1.5}
         transparent
-        opacity={0.7}
+        opacity={0.82}
       />
       <Line
         points={[
           [2, 0.03, 5],
           [2, 0.03, -5],
         ]}
-        color="#3d4654"
+        color="#4f5a68"
         lineWidth={1.5}
         transparent
-        opacity={0.7}
+        opacity={0.82}
       />
     </>
   );
@@ -204,26 +204,31 @@ export function WarehouseSceneContent({ paused }: WarehouseSceneContentProps) {
 
   return (
     <SceneParallax paused={paused}>
-      <color attach="background" args={["#151920"]} />
-      <ambientLight intensity={0.72} color="#8fa0b3" />
-      <hemisphereLight args={["#4a5d78", "#121417", 0.55]} />
+      <color attach="background" args={["#1a2028"]} />
+      <ambientLight intensity={0.9} color="#9aa8ba" />
+      <hemisphereLight args={["#5c7090", "#181c24", 0.68]} />
       <directionalLight
         position={[8, 14, 6]}
-        intensity={1.1}
-        color="#dfe6f0"
+        intensity={1.35}
+        color="#e8edf5"
       />
-      <pointLight position={[6, 8, 4]} intensity={1.4} color="#2e5bff" />
-      <pointLight position={[-4, 6, -2]} intensity={0.45} color="#8899aa" />
+      <directionalLight
+        position={[-6, 10, -4]}
+        intensity={0.42}
+        color="#8899aa"
+      />
+      <pointLight position={[6, 8, 4]} intensity={1.15} color="#3d6bff" />
+      <pointLight position={[-4, 6, -2]} intensity={0.62} color="#98a8b8" />
       <spotLight
         position={[-8, 16, 8]}
         angle={Math.PI / 5}
-        intensity={0.9}
+        intensity={1.05}
         color="#ffffff"
-        penumbra={0.4}
+        penumbra={0.45}
       />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[22, 22]} />
-        <meshStandardMaterial color="#1c222b" metalness={0.05} roughness={0.92} />
+        <meshStandardMaterial color="#262e38" metalness={0.06} roughness={0.86} />
       </mesh>
       <FloorGrid />
       {rackPositions.map(([x, z]) => (

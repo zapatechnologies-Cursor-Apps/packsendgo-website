@@ -2,6 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
+import * as THREE from "three";
 import { WarehouseSceneContent } from "@/components/three/WarehouseSceneContent";
 import { useReducedMotion } from "@/components/three/use-reduced-motion";
 import { cn } from "@/lib/utils";
@@ -56,6 +57,10 @@ export function WarehouseHeroScene({ className }: WarehouseHeroSceneProps) {
           camera={{ position: [10, 8, 12], fov: 45 }}
           dpr={[1, 1.5]}
           gl={{ antialias: true, alpha: true }}
+          onCreated={({ gl }) => {
+            gl.toneMapping = THREE.ACESFilmicToneMapping;
+            gl.toneMappingExposure = 1.12;
+          }}
         >
           <WarehouseSceneContent paused={paused} />
         </Canvas>
