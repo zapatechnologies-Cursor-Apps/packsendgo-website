@@ -120,7 +120,7 @@ All fields sourced from `docs/06_QUOTATION_FORM_SPEC.md` §4–§5, updated by P
 | Label | Field name | Type | Required | Accepted values / validation | Helper / notes | Conditional | Limits | Accessibility | Personal data |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Business stage | `businessStage` | Select | Yes | `pre_launch`, `early_stage`, `growing`, `established`, `switching_provider` | — | — | — | Visible label | No |
-| Product category | `productCategory` | Select | Yes | Controlled selection from approved list; include **Other**; no cold-chain category; no free-text-only field | Exact option list: **PENDING PRODUCT OWNER APPROVAL** — centralise in one replaceable constant | — | — | Helper text if needed | No |
+| Product category | `productCategory` | Select | Yes | Controlled selection from approved list; include **Other**; no cold-chain category; no free-text-only field | **RESOLVED 2026-08-01** — see Product Owner decision below | — | — | Helper text if needed | No |
 | Product category (other) | `productCategoryOther` | Text | Conditional | Required if **Other** selected; max 200 chars | Describe product type | If `productCategory` is Other | 200 | — | No |
 | Current fulfilment arrangement | `currentFulfilment` | Select | Yes | `in_house`, `third_party`, `mixed`, `not_started`, `not_sure` | — | — | — | — | No |
 | Desired start date | `requiredStartDate` | Select | Optional | `asap`, `within_2_weeks`, `within_1_month`, `within_1_3_months`, `more_than_3_months`, `exploring` — labels: As soon as possible; Within 2 weeks; Within 1 month; Within 1–3 months; More than 3 months; Just exploring | **RESOLVED** 2026-08-01 | — | — | — | No |
@@ -708,8 +708,20 @@ Preflight audit accepted. Implementation may proceed under documented conditions
 
 - Controlled selection with **Other** option; selecting Other reveals required description field
 - No cold-chain category; no free-text-only product-category field
-- Exact controlled option list: **PENDING PRODUCT OWNER APPROVAL**
-- Implementation must centralise options in one replaceable constant — no speculative hard-coded categories across components
+- **RESOLVED — Product Owner approval 2026-08-01.** Approved exact list:
+  1. Apparel and accessories
+  2. Beauty and personal care
+  3. Home and lifestyle
+  4. Electronics and accessories
+  5. Books, stationery and printed products
+  6. Toys, games and hobbies
+  7. Sports and fitness products
+  8. Pet products
+  9. Subscription boxes
+  10. General merchandise
+  11. Other — selecting Other reveals required `productCategoryOther` description; description clears when changing away from Other
+- Cold-chain, refrigerated, frozen and temperature-controlled categories are excluded
+- Implementation centralises options in `src/lib/quote/constants.ts` (`PRODUCT_CATEGORIES`)
 
 ### Required start date (resolved)
 
