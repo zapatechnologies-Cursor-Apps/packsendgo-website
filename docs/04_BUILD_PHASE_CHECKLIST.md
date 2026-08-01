@@ -243,10 +243,70 @@ Report: `docs/phase-reports/PHASE_2B_HOMEPAGE_IMPLEMENTATION_REPORT.md`
 - [x] Product Owner current SVG logo acceptance
 - [x] Product Owner Phase 2B acceptance (2026-08-01)
 - [ ] Real warehouse media
-- [ ] Quote form and backend
 - [ ] Legal-page implementation
 - [ ] Confirmed contact and company details
 - [ ] Production deployment
+
+### Phase 3A — Quotation form preflight and implementation
+
+**Phase 3A status: IMPLEMENTED LOCALLY — PENDING DATABASE, CREDENTIALS, LEGAL CONTENT AND PRODUCTION VALIDATION — 2026-08-01**
+
+Report: `docs/phase-reports/PHASE_3A_QUOTATION_FORM_IMPLEMENTATION_REPORT.md`
+
+#### Preflight and planning (complete)
+
+- [x] Quotation-form authority reviewed
+- [x] Current CTA routing audited
+- [x] Exact five-step structure confirmed
+- [x] Field register completed
+- [x] Validation architecture approved
+- [x] Prisma/MySQL persistence architecture approved
+- [x] Email-delivery architecture approved
+- [x] Turnstile and abuse-control architecture approved
+- [x] Upload exclusion confirmed
+- [x] Product Owner implementation decisions recorded
+- [x] Phase 3A preflight audit accepted (2026-08-01)
+- [x] Approved product categories recorded (2026-08-01)
+
+#### Implementation (local slice complete — pending production dependencies)
+
+- [x] Packages installed (`zod`, `react-hook-form`, `prisma`, `@prisma/client`)
+- [x] Prisma schema created
+- [x] Prisma schema formatted and validated
+- [x] Prisma client generated
+- [x] Migration SQL created and validated without application
+- [ ] Local MySQL configured
+- [ ] Database migration applied locally
+- [x] Quotation route implemented (`/get-a-quote`)
+- [x] Five-step quotation UI implemented
+- [x] Progressive disclosure implemented
+- [x] Client validation implemented
+- [x] Strict server validation implemented
+- [x] Review and consent step implemented
+- [x] Session draft persistence implemented
+- [x] Idempotency implemented
+- [x] Honeypot implemented
+- [x] Turnstile boundary implemented
+- [x] Development email transport implemented
+- [x] Provider-neutral email abstraction implemented
+- [x] API Route Handler implemented
+- [x] Success, validation and failure states implemented
+- [x] Accessibility requirements implemented
+- [x] Automated lint, typecheck and build passed
+- [ ] Database-backed successful quotation persistence — **BLOCKED — no configured local MySQL database**
+- [ ] Database-backed duplicate-idempotency test — **BLOCKED — no configured local MySQL database**
+- [ ] Live Turnstile verified
+- [ ] Production rate limiting complete
+- [ ] Live email provider configured
+- [ ] Customer email delivered through a live provider
+- [ ] Internal email delivered through a live provider
+- [ ] Privacy Policy implemented
+- [ ] Retention period approved
+- [ ] Production credentials configured
+- [x] Product Owner browser validation — **PASSED — 2026-08-01**
+- [ ] Production deployment
+
+Do not mark Phase 3A production complete until database, credentials, legal content and deployment validation are resolved.
 
 ### Phase 2B / Phase 3 — Remaining deferred work
 

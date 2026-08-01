@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum QuoteStatus {
+  RECEIVED
+}
+
+enum EmailAttemptType {
+  CUSTOMER
+  INTERNAL
+}
+
+enum EmailAttemptStatus {
+  SENT
+  FAILED
+  LOGGED
+}
+
+model QuoteRequest {
+  id              String      @id @default(uuid()) @db.VarChar(36)
+  publicReference String      @unique @db.VarChar(20)
+  status          QuoteStatus @default(RECEIVED)
+  idempotencyKey  String      @unique @db.VarChar(64)
+
+  contactName            String  @db.VarChar(100)
+  companyName            String  @db.VarChar(150)
+  email                  String  @db.VarChar(254)
+  telephone              String  @db.VarChar(20)
+  websiteUrl             String? @db.VarChar(500)
+  country                String  @db.VarChar(2)
+  preferredContactMethod String  @db.VarChar(20)
+
+  businessStage         String  @db.VarChar(40)
+  productCategory       String  @db.VarChar(60)
+  productCategoryOther  String? @db.VarChar(200)
+  currentFulfilment     String  @db.VarChar(30)
+  requiredStartDate     String? @db.VarChar(30)
+  enquiryReason         String  @db.VarChar(30)
+  salesChannels         Json
+  salesChannelOther     String? @db.VarChar(200)
+  customPlatformDetails String? @db.VarChar(200)
+
+  monthlyOrderRange      String  @db.VarChar(30)
+  skuCount               String  @db.VarChar(30)
+  itemsPerOrder          String  @db.VarChar(20)
+  seasonalPeaks          String? @db.VarChar(20)
+  growthExpectation      String? @db.VarChar(30)
+  stockVolume            String  @db.VarChar(30)
+  storageType            Json
+  productDimensions      String? @db.VarChar(200)
+  productWeight          String? @db.VarChar(20)
+  specialHandling        Json?
+  specialHandlingDetails String? @db.Text
+
+  deliveryRegions           Json
+  internationalDestinations String? @db.VarChar(500)
+  parcelDimensions          String? @db.VarChar(20)
+  parcelWeight              String? @db.VarChar(20)
+  trackingRequired          String? @db.VarChar(20)
+  specialCourierRequired    String? @db.VarChar(5)
+  specialCourierDetails     String? @db.VarChar(500)
+  additionalServices        Json?
+  additionalServicesOther   String? @db.VarChar(200)
+  brandedPackagingDetails   String? @db.VarChar(500)
+  returnsVolume             String? @db.VarChar(20)
+
+  additionalNotes        String?   @db.Text
+  privacyConsent         Boolean
+  privacyConsentAt       DateTime
+  marketingConsent       Boolean   @default(false)
+  marketingConsentAt     DateTime?
+  accuracyConfirmation   Boolean
+  accuracyConfirmationAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  emailAttempts QuoteNotificationAttempt[]
+
+  @@index([email])
+  @@index([createdAt])
+}
+
+model QuoteNotificationAttempt {
+  id               String             @id @default(uuid()) @db.VarChar(36)
+  quoteRequestId   String             @db.VarChar(36)
+  emailType        EmailAttemptType
+  status           EmailAttemptStatus
+  providerResponse String?            @db.VarChar(500)
+  createdAt        DateTime           @default(now())
+
+  quoteRequest QuoteRequest @relation(fields: [quoteRequestId], references: [id], onDelete: Cascade)
+
+  @@index([quoteRequestId])
+}

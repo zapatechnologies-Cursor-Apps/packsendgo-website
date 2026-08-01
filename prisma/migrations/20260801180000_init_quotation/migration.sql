@@ -1,0 +1,76 @@
+-- CreateTable
+CREATE TABLE `QuoteRequest` (
+    `id` VARCHAR(36) NOT NULL,
+    `publicReference` VARCHAR(20) NOT NULL,
+    `status` ENUM('RECEIVED') NOT NULL DEFAULT 'RECEIVED',
+    `idempotencyKey` VARCHAR(64) NOT NULL,
+    `contactName` VARCHAR(100) NOT NULL,
+    `companyName` VARCHAR(150) NOT NULL,
+    `email` VARCHAR(254) NOT NULL,
+    `telephone` VARCHAR(20) NOT NULL,
+    `websiteUrl` VARCHAR(500) NULL,
+    `country` VARCHAR(2) NOT NULL,
+    `preferredContactMethod` VARCHAR(20) NOT NULL,
+    `businessStage` VARCHAR(40) NOT NULL,
+    `productCategory` VARCHAR(60) NOT NULL,
+    `productCategoryOther` VARCHAR(200) NULL,
+    `currentFulfilment` VARCHAR(30) NOT NULL,
+    `requiredStartDate` VARCHAR(30) NULL,
+    `enquiryReason` VARCHAR(30) NOT NULL,
+    `salesChannels` JSON NOT NULL,
+    `salesChannelOther` VARCHAR(200) NULL,
+    `customPlatformDetails` VARCHAR(200) NULL,
+    `monthlyOrderRange` VARCHAR(30) NOT NULL,
+    `skuCount` VARCHAR(30) NOT NULL,
+    `itemsPerOrder` VARCHAR(20) NOT NULL,
+    `seasonalPeaks` VARCHAR(20) NULL,
+    `growthExpectation` VARCHAR(30) NULL,
+    `stockVolume` VARCHAR(30) NOT NULL,
+    `storageType` JSON NOT NULL,
+    `productDimensions` VARCHAR(200) NULL,
+    `productWeight` VARCHAR(20) NULL,
+    `specialHandling` JSON NULL,
+    `specialHandlingDetails` TEXT NULL,
+    `deliveryRegions` JSON NOT NULL,
+    `internationalDestinations` VARCHAR(500) NULL,
+    `parcelDimensions` VARCHAR(20) NULL,
+    `parcelWeight` VARCHAR(20) NULL,
+    `trackingRequired` VARCHAR(20) NULL,
+    `specialCourierRequired` VARCHAR(5) NULL,
+    `specialCourierDetails` VARCHAR(500) NULL,
+    `additionalServices` JSON NULL,
+    `additionalServicesOther` VARCHAR(200) NULL,
+    `brandedPackagingDetails` VARCHAR(500) NULL,
+    `returnsVolume` VARCHAR(20) NULL,
+    `additionalNotes` TEXT NULL,
+    `privacyConsent` BOOLEAN NOT NULL,
+    `privacyConsentAt` DATETIME(3) NOT NULL,
+    `marketingConsent` BOOLEAN NOT NULL DEFAULT false,
+    `marketingConsentAt` DATETIME(3) NULL,
+    `accuracyConfirmation` BOOLEAN NOT NULL,
+    `accuracyConfirmationAt` DATETIME(3) NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    UNIQUE INDEX `QuoteRequest_publicReference_key`(`publicReference`),
+    UNIQUE INDEX `QuoteRequest_idempotencyKey_key`(`idempotencyKey`),
+    INDEX `QuoteRequest_email_idx`(`email`),
+    INDEX `QuoteRequest_createdAt_idx`(`createdAt`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `QuoteNotificationAttempt` (
+    `id` VARCHAR(36) NOT NULL,
+    `quoteRequestId` VARCHAR(36) NOT NULL,
+    `emailType` ENUM('CUSTOMER', 'INTERNAL') NOT NULL,
+    `status` ENUM('SENT', 'FAILED', 'LOGGED') NOT NULL,
+    `providerResponse` VARCHAR(500) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    INDEX `QuoteNotificationAttempt_quoteRequestId_idx`(`quoteRequestId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `QuoteNotificationAttempt` ADD CONSTRAINT `QuoteNotificationAttempt_quoteRequestId_fkey` FOREIGN KEY (`quoteRequestId`) REFERENCES `QuoteRequest`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
