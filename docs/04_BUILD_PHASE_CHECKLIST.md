@@ -83,30 +83,34 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Authority check
 
-- [ ] Design exploration aligned with `docs/02_DESIGN_AND_3D_AUTHORITY.md`
+- [x] Design exploration aligned with `docs/02_DESIGN_AND_3D_AUTHORITY.md`
 
 ### Implementation tasks
 
-- [ ] Three distinct desktop homepage concepts produced
-- [ ] Mobile variants for each concept
-- [ ] Quote flow concept
-- [ ] Warehouse page concept
-- [ ] Review against design authority
-- [ ] Product Owner direction selection (one concept approved)
+- [x] Stitch concept exploration complete
+- [x] Three distinct desktop homepage concepts produced (historical)
+- [x] Mobile variants for each concept (historical)
+- [x] Quote flow concept (historical)
+- [x] Warehouse page concept (historical)
+- [x] Review against design authority
+- [x] Final concept selected: PackSendGo — Final Desktop Master V3
+- [x] Product Owner direction selection (one concept approved)
+- [x] Rejected concepts deleted from Stitch project
 
 ### Validation
 
-- [ ] Concepts reviewed for conversion path, accessibility and 3D feasibility
+- [x] Concepts reviewed for conversion path, accessibility and 3D feasibility
 
 ### Browser validation
 
-- [ ] Desktop review of exported concepts
-- [ ] Mobile review of exported concepts
+- [x] Desktop review of exported concepts
+- [x] Mobile review of exported concepts (historical)
 
 ### Documentation update
 
-- [ ] Stitch project reference recorded
-- [ ] Approved direction documented
+- [x] Stitch project reference recorded
+- [x] Approved direction documented
+- [x] Selected screen recorded (`f850fd8d653d41c8b8958f00ddaea79f`)
 
 ### Git (Product Owner only)
 
@@ -114,7 +118,7 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner acceptance (2026-08-01)
 
 ---
 
@@ -122,35 +126,38 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Authority check
 
-- [ ] Design system aligned with approved concept and design authority
+- [x] Design system aligned with approved concept and design authority
 
 ### Implementation tasks
 
-- [ ] Colours defined and approved
-- [ ] Typography defined and approved
-- [ ] Spacing scale defined
-- [ ] Component library direction documented
-- [ ] Buttons specified
-- [ ] Form controls specified
-- [ ] Motion principles documented
-- [ ] 3D placement and fallback strategy documented
-- [ ] Desktop approval
-- [ ] Mobile approval
-- [ ] `DESIGN.md` handoff completed
+- [x] Colours defined and approved (Dark Industrial Elegance)
+- [x] Typography defined and approved (Playfair Display, Geist)
+- [x] Spacing scale defined
+- [x] Component library direction documented
+- [x] Buttons specified
+- [x] Form controls specified
+- [x] Motion principles documented
+- [x] 3D placement and fallback strategy documented (Three.js hero authority resolved)
+- [x] Desktop approval
+- [x] Mobile approval (to be resolved in code)
+- [x] Selected design handoff created (`design/stitch/03_SELECTED_DESIGN_HANDOFF.md`)
+- [x] Frontend preflight audit created (`design/stitch/04_FRONTEND_FOUNDATION_PREFLIGHT_AUDIT.md`)
+- [x] Design-system reference recorded (`assets/de64b70122504dc6b5c12ce0795dddb6`)
 
 ### Validation
 
-- [ ] Design tokens exported
+- [x] Design tokens exported
 - [ ] Asset register updated
 
 ### Browser validation
 
-- [ ] Desktop design review
-- [ ] Mobile design review
+- [x] Desktop design review
+- [ ] Mobile design review (deferred to implementation)
 
 ### Documentation update
 
-- [ ] `DESIGN.md` and handoff materials complete
+- [x] Handoff materials complete
+- [x] `docs/02_DESIGN_AND_3D_AUTHORITY.md` aligned with Three.js hero decision
 
 ### Git (Product Owner only)
 
@@ -158,47 +165,72 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner acceptance (2026-08-01)
 
 ---
 
 ## Phase 2 — Next.js foundation
 
+**Phase 2A status: COMPLETE — ACCEPTED 2026-08-01**
+
+Phase 2 overall is **not** complete. Phase 2A foundation is accepted; remaining homepage, hero and deployment work is deferred.
+
+Report: `docs/phase-reports/PHASE_2A_FRONTEND_FOUNDATION_REPORT.md`
+
+### Phase 2A — Foundation (complete where marked)
+
+- [x] Next.js foundation initialised (App Router)
+- [x] App Router established
+- [x] TypeScript strict mode configured
+- [x] Tailwind CSS configured
+- [x] ESLint configured
+- [ ] Formatting configured
+- [x] `.env.example` created (no secrets)
+- [x] Route shell and root layout
+- [x] Metadata foundation
+- [x] Shared component foundation (header, footer shell)
+- [x] Playfair Display and Geist configured
+- [x] Semantic design tokens established
+- [x] System, Light and Dark theme architecture established
+- [x] Three.js dependencies installed
+- [x] Three.js client-side integration boundary established
+- [x] Hostinger-compatible build verified locally
+- [x] Automated validation passing (lint, typecheck, build)
+
+### Phase 2A validation
+
+- [x] Build succeeds
+- [x] Lint passes
+- [x] Type check passes
+- [x] Root route browser review (Product Owner)
+- [x] Layout responsive at key breakpoints (Product Owner)
+- [x] Root layout usable on mobile viewport (Product Owner)
+- [x] Product Owner desktop browser validation
+- [x] Product Owner mobile browser validation (approximately 390 × 844)
+- [x] Product Owner theme validation (System / Light / Dark with persistence)
+
+### Phase 2B / Phase 3 — Deferred (incomplete)
+
+- [ ] Selected Stitch homepage implementation
+- [ ] Real Three.js warehouse hero
+- [ ] Sharp lime route line
+- [ ] Moving lime parcel box
+- [ ] Production logo SVGs
+- [ ] Compact production theme menu
+- [ ] Complete responsive homepage
+- [ ] Final mobile visual acceptance for the completed homepage
+- [ ] Quote form
+- [ ] Legal pages
+- [ ] Real warehouse media
+- [ ] Production deployment
+
 ### Authority check
 
-- [ ] Implementation aligned with `docs/03_TECHNICAL_ARCHITECTURE.md`
-
-### Implementation tasks
-
-- [ ] Next.js initialised (App Router)
-- [ ] TypeScript configured
-- [ ] Tailwind CSS configured
-- [ ] Linting configured
-- [ ] Formatting configured
-- [ ] `.env.example` created (no secrets)
-- [ ] Route shell and root layout
-- [ ] Metadata foundation
-- [ ] Shared component foundation (header, footer shell)
-- [ ] Hostinger-compatible build verified locally
-- [ ] Automated validation passing
-
-### Validation
-
-- [ ] Build succeeds
-- [ ] Lint passes
-- [ ] Type check passes
-
-### Browser validation
-
-- [ ] Root route renders
-- [ ] Layout responsive at key breakpoints
-
-### Mobile validation
-
-- [ ] Root layout usable on mobile viewport
+- [x] Implementation aligned with `docs/03_TECHNICAL_ARCHITECTURE.md`
 
 ### Documentation update
 
+- [x] Phase 2A foundation report created
 - [ ] Architecture and deployment docs updated if needed
 
 ### Git (Product Owner only)
@@ -207,7 +239,7 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner Phase 2A acceptance (2026-08-01)
 
 ---
 
