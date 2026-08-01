@@ -25,7 +25,7 @@ Approved visual characteristics:
 
 ## 3. Working palette
 
-The exact colour values remain subject to Stitch exploration and Product Owner approval.
+The exact colour values are approved via the **Dark Industrial Elegance** design system (`assets/de64b70122504dc6b5c12ce0795dddb6`) and recorded in `design/stitch/03_SELECTED_DESIGN_HANDOFF.md`.
 
 Working colour roles:
 
@@ -51,14 +51,12 @@ The design shall use:
 - Generous line spacing
 - Strong mobile legibility
 
-Candidate typefaces may include:
+Approved typefaces (Product Owner accepted 1 August 2026):
 
-- Geist
-- Manrope
-- Inter
-- Plus Jakarta Sans
+- **Playfair Display** — editorial headings
+- **Geist** — body text, navigation, labels and controls
 
-The final choice requires Product Owner approval.
+Candidate alternatives remain available for non-homepage pages only if separately approved.
 
 ## 5. Layout principles
 
@@ -114,24 +112,59 @@ Disallowed motion includes:
 
 ## 7. Homepage hero authority
 
+The selected Stitch homepage screen **PackSendGo — Final Desktop Master V3** (`projects/4066494508265032545/screens/f850fd8d653d41c8b8958f00ddaea79f`) is the sole **layout and visual-composition authority** for the homepage.
+
+The separate Stitch Three.js asset (`projects/4066494508265032545/screens/d7229de0d31345ecb11e475ae8a1020b`) is **not** embedded in that crop. Cursor must embed and adapt that asset as the **full hero background** during implementation.
+
+**Three.js** is the approved technology for the PackSendGo homepage hero (Product Owner accepted 1 August 2026). This decision supersedes any earlier homepage-hero reference to Spline in this document or `docs/00_PROJECT_AUTHORITY.md`.
+
 The hero should include:
 
 - Clear PackSendGo proposition
 - Concise supporting copy
-- Primary quotation CTA
-- Secondary warehouse-tour CTA
-- Stylised warehouse visual
-- Immediate loading fallback
+- Primary quotation CTA (`Get a tailored quote`)
+- Secondary warehouse-tour CTA (`Tour our warehouse`)
+- Full-screen Three.js warehouse scene as background
+- Graphite readability gradient and vignette over the scene
+- Immediate loading fallback (poster or lightweight video)
 - Visible trust cue
 - Responsive mobile composition
 
+Essential hero copy and CTAs must remain **HTML outside the canvas** for accessibility, SEO and non-WebGL fallback.
+
 The hero must not depend on the 3D scene to communicate the service.
+
+The duplicate service strip immediately below the hero in earlier concepts is **not** part of the approved composition and must not be implemented.
+
+No generated warehouse imagery may be presented as PackSendGo's real facility.
 
 ## 8. Stylised 3D warehouse
 
-Spline is the preferred V1 implementation technology.
+### 8.1 Homepage hero — Three.js (approved)
 
-The scene should present an elegant warehouse cutaway or controlled isometric environment.
+The homepage hero uses **Three.js**, not Spline.
+
+The separate Stitch Three.js asset is the **interaction and visual-behaviour reference** for the hero scene. Cursor must adapt it for production; do not iframe Stitch URLs.
+
+The scene must:
+
+- Cover the **complete hero background** behind headline and CTAs
+- Present a realistic human-operated warehouse environment
+- Include a sharp **signal-lime route line**
+- Include a small **signal-lime parcel box** moving along that route
+- Restrain whole-scene rotation — no constant spinning
+- Respect `prefers-reduced-motion`
+- Pause or reduce rendering when the hero is outside the viewport
+- Provide a simplified scene, video or poster fallback on mobile and weaker devices
+- Preserve hero readability and conversion when WebGL is unavailable
+
+### 8.2 Other stylised 3D experiences — Spline (conditional)
+
+**Spline is not authorised for the homepage hero.**
+
+Spline may only be considered for a **future non-hero experience** following explicit Product Owner approval. No Spline homepage-hero implementation may proceed under this authority.
+
+Where a future approved non-hero Spline experience is commissioned, the scene should present an elegant warehouse cutaway or controlled isometric environment.
 
 Candidate zones:
 
@@ -246,39 +279,43 @@ Before filming, the warehouse should be:
 
 ## 12. Stitch authority
 
-Google Stitch shall be used for design exploration and approved interface generation.
+Google Stitch was used for Phase 1A design exploration and approved interface generation.
 
-The initial Stitch phase shall produce:
+Phase 1A and Phase 1B are **accepted** (1 August 2026). **No further Stitch concept generation or refinement is authorised.**
 
-- Three distinct homepage directions
-- Desktop compositions
-- Mobile compositions
-- Quote-flow concept
-- Warehouse-page concept
-- Core design system
-- Component direction
+The surviving Stitch resources are:
 
-Only one approved direction shall progress into full-page design.
+| Resource | ID |
+| --- | --- |
+| Project | `projects/4066494508265032545` |
+| Selected homepage | `projects/4066494508265032545/screens/f850fd8d653d41c8b8958f00ddaea79f` |
+| Three.js hero asset | `projects/4066494508265032545/screens/d7229de0d31345ecb11e475ae8a1020b` |
+| Logo reference | `projects/4066494508265032545/screens/89383fcba01d44c4999016678e664b5d` |
+| Design system | `assets/de64b70122504dc6b5c12ce0795dddb6` |
 
-Stitch output is a design source, not automatic production authority.
+All rejected Stitch concepts have been deleted.
+
+Stitch output is a design source, not automatic production authority. The selected homepage screen is composition authority; remaining responsive, theme, accessibility and interaction refinements will be completed in code.
 
 ## 13. Stitch-to-Cursor handoff
 
+The approved handoff is recorded in:
+
+- `design/stitch/03_SELECTED_DESIGN_HANDOFF.md`
+- `design/stitch/04_FRONTEND_FOUNDATION_PREFLIGHT_AUDIT.md`
+- `design/stitch/02_CONCEPT_REVIEW_SCORECARD.md`
+
 Before implementation, preserve:
 
-- Stitch project reference
-- Approved screenshots
-- Mobile screenshots
-- Exported design files
-- Design tokens
-- Colour values
-- Typography
-- Spacing
-- Component list
-- Motion notes
+- Stitch project and screen references (see §12)
+- Approved screenshots and exported design files
+- Design tokens from Dark Industrial Elegance
+- Colour values, typography and spacing
+- Component list and motion notes
 - Asset register
-- `DESIGN.md`
 - Acceptance record
+
+**Approved implementation deviation:** The selected Stitch crop does not contain the Three.js hero. During implementation, the separate Three.js asset must replace the crop's static hero treatment and become the full hero background.
 
 Cursor must implement against these approved materials.
 

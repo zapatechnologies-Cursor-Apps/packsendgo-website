@@ -83,30 +83,34 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Authority check
 
-- [ ] Design exploration aligned with `docs/02_DESIGN_AND_3D_AUTHORITY.md`
+- [x] Design exploration aligned with `docs/02_DESIGN_AND_3D_AUTHORITY.md`
 
 ### Implementation tasks
 
-- [ ] Three distinct desktop homepage concepts produced
-- [ ] Mobile variants for each concept
-- [ ] Quote flow concept
-- [ ] Warehouse page concept
-- [ ] Review against design authority
-- [ ] Product Owner direction selection (one concept approved)
+- [x] Stitch concept exploration complete
+- [x] Three distinct desktop homepage concepts produced (historical)
+- [x] Mobile variants for each concept (historical)
+- [x] Quote flow concept (historical)
+- [x] Warehouse page concept (historical)
+- [x] Review against design authority
+- [x] Final concept selected: PackSendGo — Final Desktop Master V3
+- [x] Product Owner direction selection (one concept approved)
+- [x] Rejected concepts deleted from Stitch project
 
 ### Validation
 
-- [ ] Concepts reviewed for conversion path, accessibility and 3D feasibility
+- [x] Concepts reviewed for conversion path, accessibility and 3D feasibility
 
 ### Browser validation
 
-- [ ] Desktop review of exported concepts
-- [ ] Mobile review of exported concepts
+- [x] Desktop review of exported concepts
+- [x] Mobile review of exported concepts (historical)
 
 ### Documentation update
 
-- [ ] Stitch project reference recorded
-- [ ] Approved direction documented
+- [x] Stitch project reference recorded
+- [x] Approved direction documented
+- [x] Selected screen recorded (`f850fd8d653d41c8b8958f00ddaea79f`)
 
 ### Git (Product Owner only)
 
@@ -114,7 +118,7 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner acceptance (2026-08-01)
 
 ---
 
@@ -122,35 +126,38 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Authority check
 
-- [ ] Design system aligned with approved concept and design authority
+- [x] Design system aligned with approved concept and design authority
 
 ### Implementation tasks
 
-- [ ] Colours defined and approved
-- [ ] Typography defined and approved
-- [ ] Spacing scale defined
-- [ ] Component library direction documented
-- [ ] Buttons specified
-- [ ] Form controls specified
-- [ ] Motion principles documented
-- [ ] 3D placement and fallback strategy documented
-- [ ] Desktop approval
-- [ ] Mobile approval
-- [ ] `DESIGN.md` handoff completed
+- [x] Colours defined and approved (Dark Industrial Elegance)
+- [x] Typography defined and approved (Playfair Display, Geist)
+- [x] Spacing scale defined
+- [x] Component library direction documented
+- [x] Buttons specified
+- [x] Form controls specified
+- [x] Motion principles documented
+- [x] 3D placement and fallback strategy documented (Three.js hero authority resolved)
+- [x] Desktop approval
+- [x] Mobile approval (to be resolved in code)
+- [x] Selected design handoff created (`design/stitch/03_SELECTED_DESIGN_HANDOFF.md`)
+- [x] Frontend preflight audit created (`design/stitch/04_FRONTEND_FOUNDATION_PREFLIGHT_AUDIT.md`)
+- [x] Design-system reference recorded (`assets/de64b70122504dc6b5c12ce0795dddb6`)
 
 ### Validation
 
-- [ ] Design tokens exported
+- [x] Design tokens exported
 - [ ] Asset register updated
 
 ### Browser validation
 
-- [ ] Desktop design review
-- [ ] Mobile design review
+- [x] Desktop design review
+- [ ] Mobile design review (deferred to implementation)
 
 ### Documentation update
 
-- [ ] `DESIGN.md` and handoff materials complete
+- [x] Handoff materials complete
+- [x] `docs/02_DESIGN_AND_3D_AUTHORITY.md` aligned with Three.js hero decision
 
 ### Git (Product Owner only)
 
@@ -158,11 +165,23 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner acceptance (2026-08-01)
 
 ---
 
 ## Phase 2 — Next.js foundation
+
+**Status: READY TO BEGIN** (accepted 2026-08-01)
+
+Phase 2 implementation tasks are **not** complete. The following entry conditions apply before and during Phase 2:
+
+- Next.js foundation must be initialised on the current `feature/frontend-foundation` branch
+- Hostinger-compatible Node deployment assumptions must be validated without locking an unsupported exact runtime version
+- The selected Stitch design and handoff documents govern frontend composition
+- The separate Three.js asset (`d7229de0d31345ecb11e475ae8a1020b`) governs hero scene behaviour
+- Mobile must be deliberately designed in code and not treated as a scaled desktop crop
+- No customer portal, login, payments, tracking or live pricing may be introduced
+- Cursor must not run Git commands
 
 ### Authority check
 

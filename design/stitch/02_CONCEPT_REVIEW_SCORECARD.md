@@ -149,33 +149,55 @@ Complete for each direction reviewed.
 
 | Item | Value |
 | --- | --- |
-| Selected direction | `PENDING PRODUCT OWNER INPUT` |
-| Rejected directions | |
-| Elements worth carrying forward | |
-| Required revisions before Phase 1B approval | |
-| Product Owner decision | `PENDING PRODUCT OWNER INPUT` |
-| Acceptance date | `PENDING PRODUCT OWNER INPUT` |
+| Selected concept | PackSendGo — Final Desktop Master V3 |
+| Selected screen ID | `f850fd8d653d41c8b8958f00ddaea79f` |
+| Selected screen resource | `projects/4066494508265032545/screens/f850fd8d653d41c8b8958f00ddaea79f` |
+| Stitch project ID | `4066494508265032545` |
+| Separate Three.js asset ID | `d7229de0d31345ecb11e475ae8a1020b` |
+| Logo reference ID | `89383fcba01d44c4999016678e664b5d` |
+| Design system ID | `assets/de64b70122504dc6b5c12ce0795dddb6` |
+| Selection status | **ACCEPTED** |
+| Rejected directions | Direction Two (Editorial Logistics), Direction Three (Connected Fulfilment) — **REJECTED / DELETED** |
+| Further Stitch iteration | **Not authorised** |
+| Product Owner decision | **ACCEPTED** |
+| Acceptance date | **2026-08-01** |
 
-**Stitch project reference:** `PENDING PRODUCT OWNER INPUT`
+**Stitch project reference:** `projects/4066494508265032545`
+
+### Approved implementation deviations
+
+The selected Stitch crop does **not** contain the Three.js hero. During implementation, the separate Three.js asset (`d7229de0d31345ecb11e475ae8a1020b`) must replace the crop's static hero treatment and become the **full hero background**.
+
+Cursor implementation may make the approved deviations recorded in `design/stitch/03_SELECTED_DESIGN_HANDOFF.md`, including:
+
+- Duplicate service rail below hero is **removed** from implementation scope
+- Responsive mobile design will be resolved in implementation (no surviving mobile Stitch screen)
+- Light, Dark and System themes will be implemented in code
+- Real warehouse media remains **pending**
+- Unsupported native-integration and global-delivery claims remain **prohibited**
+
+**Note:** Retrospective numerical design scores were not recorded during concept review and are not invented here.
 
 ---
 
 ## 7. Phase completion criteria
 
-Phase 1A is **not complete** until:
+Phase 1A is **complete** (accepted 2026-08-01):
 
-- [ ] Three distinct desktop homepage concepts exported
-- [ ] Mobile interpretation for each direction exported
-- [ ] Quotation-flow concept exported (desktop and mobile)
-- [ ] Warehouse-page concept exported (desktop and mobile)
-- [ ] This scorecard completed with weighted scores
-- [ ] No automatic rejection conditions triggered (or all resolved)
-- [ ] One direction explicitly selected by the Product Owner
-- [ ] Required revisions documented
-- [ ] Product Owner acceptance date recorded above
-- [ ] Stitch project reference recorded
+- [x] Three distinct desktop homepage concepts exported
+- [x] Mobile interpretation for each direction exported (historical; rejected concepts deleted)
+- [x] Quotation-flow concept exported (historical; rejected concepts deleted)
+- [x] Warehouse-page concept exported (historical; rejected concepts deleted)
+- [x] Scorecard selection outcome recorded (numerical scores not retrospectively invented)
+- [x] No unresolved automatic rejection conditions for selected concept
+- [x] One direction explicitly selected by the Product Owner
+- [x] Required revisions documented in handoff
+- [x] Product Owner acceptance date recorded above
+- [x] Stitch project reference recorded
 
-Phase 1B (approved design system) may begin only after Product Owner acceptance of the selected direction.
+Phase 1B (approved design system and handoff) is **complete** (accepted 2026-08-01). See `docs/04_BUILD_PHASE_CHECKLIST.md`.
+
+Phase 2 frontend foundation is **READY TO BEGIN** after this documentation update is validated and committed by the Product Owner.
 
 ---
 
@@ -184,10 +206,11 @@ Phase 1B (approved design system) may begin only after Product Owner acceptance 
 | Field | Value |
 | --- | --- |
 | Reviewer | Product Owner |
-| Review date | `PENDING PRODUCT OWNER INPUT` |
-| Concepts reviewed | Direction One, Direction Two, Direction Three |
-| Supporting concepts reviewed | Quotation flow, Warehouse page |
-| Quotation-flow concept aligned with `docs/06_QUOTATION_FORM_SPEC.md` | Y / N |
-| Warehouse concept aligned with design authority | Y / N |
-| Fabricated content detected | Y / N |
-| Recommendation to progress | `PENDING PRODUCT OWNER INPUT` |
+| Review date | 2026-08-01 |
+| Concepts reviewed | Direction One (selected), Direction Two (rejected/deleted), Direction Three (rejected/deleted) |
+| Selected concept | PackSendGo — Final Desktop Master V3 (Precision Warehouse / Dark Industrial Elegance) |
+| Supporting concepts reviewed | Quotation flow, Warehouse page (historical; rejected concepts deleted) |
+| Quotation-flow concept aligned with `docs/06_QUOTATION_FORM_SPEC.md` | Y |
+| Warehouse concept aligned with design authority | Y |
+| Fabricated content detected | N |
+| Recommendation to progress | **ACCEPTED — Phase 2 ready to begin** |
