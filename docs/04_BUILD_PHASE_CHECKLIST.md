@@ -249,9 +249,12 @@ Report: `docs/phase-reports/PHASE_2B_HOMEPAGE_IMPLEMENTATION_REPORT.md`
 
 ### Phase 3A — Quotation form preflight and implementation
 
-**Phase 3A status: IMPLEMENTED LOCALLY — PENDING DATABASE, CREDENTIALS, LEGAL CONTENT AND PRODUCTION VALIDATION — 2026-08-01**
+**Phase 3A status: IMPLEMENTED LOCALLY — DATABASE-BACKED PERSISTENCE VALIDATED — STAGING AND PRODUCTION PENDING — 2026-08-01**
 
 Report: `docs/phase-reports/PHASE_3A_QUOTATION_FORM_IMPLEMENTATION_REPORT.md`
+Phase 3B1 report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_REPORT.md`
+
+**Phase 3B1 status: LOCAL DATABASE MIGRATION AND PERSISTENCE VALIDATED — STAGING AND PRODUCTION PENDING — 2026-08-01**
 
 #### Preflight and planning (complete)
 
@@ -275,8 +278,8 @@ Report: `docs/phase-reports/PHASE_3A_QUOTATION_FORM_IMPLEMENTATION_REPORT.md`
 - [x] Prisma schema formatted and validated
 - [x] Prisma client generated
 - [x] Migration SQL created and validated without application
-- [ ] Local MySQL configured
-- [ ] Database migration applied locally
+- [x] Local MySQL configured
+- [x] Database migration applied locally
 - [x] Quotation route implemented (`/get-a-quote`)
 - [x] Five-step quotation UI implemented
 - [x] Progressive disclosure implemented
@@ -293,8 +296,8 @@ Report: `docs/phase-reports/PHASE_3A_QUOTATION_FORM_IMPLEMENTATION_REPORT.md`
 - [x] Success, validation and failure states implemented
 - [x] Accessibility requirements implemented
 - [x] Automated lint, typecheck and build passed
-- [ ] Database-backed successful quotation persistence — **BLOCKED — no configured local MySQL database**
-- [ ] Database-backed duplicate-idempotency test — **BLOCKED — no configured local MySQL database**
+- [x] Database-backed successful quotation persistence — **PASSED — 2026-08-01 (local)**
+- [x] Database-backed duplicate-idempotency test — **PASSED — 2026-08-01 (sequential replay)**
 - [ ] Live Turnstile verified
 - [ ] Production rate limiting complete
 - [ ] Live email provider configured
@@ -524,43 +527,75 @@ Do not mark Phase 3A production complete until database, credentials, legal cont
 
 ## Phase 7 — Quotation form and MySQL
 
+**Phase 7 status: LOCAL QUOTATION FORM AND MYSQL VALIDATED — HOSTINGER AND PRODUCTION INTEGRATIONS PENDING — 2026-08-01**
+
+Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_REPORT.md` (Phase 3B1 filename; Phase 7 tracker scope)
+
 ### Authority check
 
-- [ ] Form aligned with `docs/06_QUOTATION_FORM_SPEC.md`
-- [ ] Data model aligned with `docs/03_TECHNICAL_ARCHITECTURE.md` §7
+- [x] Form aligned with `docs/06_QUOTATION_FORM_SPEC.md`
+- [x] Data model aligned with `docs/03_TECHNICAL_ARCHITECTURE.md` §7
 
 ### Implementation tasks
 
-- [ ] Prisma schema defined
-- [ ] Database migration created
-- [ ] Multi-step form UI implemented
-- [ ] Client-side usability validation
-- [ ] Server-side authoritative validation
-- [ ] Turnstile integration
-- [ ] Quotation API endpoint
-- [ ] Reference generation
-- [ ] Success state
-- [ ] Error state and field-level errors
-- [ ] Duplicate-submission protection
-- [ ] Automated validation passing
+- [x] Prisma schema defined
+- [x] Database migration created
+- [x] Multi-step form UI implemented
+- [x] Client-side usability validation
+- [x] Server-side authoritative validation
+- [x] Turnstile integration (local boundary; live verification pending)
+- [x] Quotation API endpoint
+- [x] Reference generation
+- [x] Success state
+- [x] Error state and field-level errors
+- [x] Duplicate-submission protection (sequential idempotency validated)
+- [x] Automated validation passing (lint, typecheck, build)
 
 ### Validation
 
-- [ ] Test submission stores complete structured record
-- [ ] Invalid submissions rejected safely
+- [x] Test submission stores complete structured record (local API and browser)
+- [x] Invalid submissions rejected safely
+- [x] Local MySQL infrastructure configured and healthy
+- [x] Local migration applied; Prisma migration status current
+- [x] Browser and database reference match verified (`PSG-20260801-EZS2`)
+- [x] Typed field persistence verified
+- [x] Conditional value handling verified (including stale-hidden normalisation)
+- [x] Consent persistence verified
+- [x] Development notification-attempt records verified
+- [x] Sequential idempotency tested
+- [x] Honeypot non-persistence verified
+- [x] Security-token non-persistence verified (Turnstile token, raw IP)
+- [x] Synthetic test data cleaned after validation
+- [x] Prisma Client generation — **PASS — 2026-08-01**
+- [ ] Concurrent idempotency race test
 
 ### Browser validation
 
-- [ ] Full form flow on desktop
-- [ ] Review and consent step verified
+- [x] Full form flow on desktop — **PASSED — 2026-08-01 (database-backed)**
+- [x] Review and consent step verified
+- [x] Product Owner local browser validation — **PASSED — 2026-08-01**
+- [x] Session draft cleared after successful submission
 
 ### Mobile validation
 
-- [ ] Full form flow on mobile
+- [ ] Full form flow on mobile (local database-backed)
+
+### Hostinger and production (incomplete)
+
+- [ ] Hostinger MySQL provisioned
+- [ ] Staging migration deployed
+- [ ] Production migration deployed
+- [ ] Transactional email provider configured
+- [ ] Live Turnstile verified in staging/production
+- [ ] Production rate limiting complete
+- [ ] Privacy Policy implemented
+- [ ] Retention period approved
+- [ ] Staging end-to-end validation
+- [ ] Production deployment validation
 
 ### Documentation update
 
-- [ ] Form spec marked implemented where complete
+- [x] Phase 7 local validation recorded in persistence report
 
 ### Git (Product Owner only)
 
@@ -568,7 +603,9 @@ Do not mark Phase 3A production complete until database, credentials, legal cont
 
 ### Acceptance
 
-- [ ] Product Owner acceptance
+- [x] Product Owner local acceptance — **ACCEPTED WITH CONDITIONS — 2026-08-01**
+
+Do not mark Phase 7 fully production complete until Hostinger, credentials, legal content and deployment validation are resolved.
 
 ---
 

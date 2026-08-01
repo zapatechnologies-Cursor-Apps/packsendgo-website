@@ -13,7 +13,12 @@
     "typecheck": "tsc --noEmit",
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
-    "prisma:migrate:dev": "prisma migrate dev"
+    "prisma:migrate:dev": "prisma migrate dev",
+    "db:local:config": "docker compose --env-file .env.mysql.local -f compose.local.yml config --quiet",
+    "db:local:up": "docker compose --env-file .env.mysql.local -f compose.local.yml up -d",
+    "db:local:down": "docker compose --env-file .env.mysql.local -f compose.local.yml down",
+    "db:local:logs": "docker compose --env-file .env.mysql.local -f compose.local.yml logs -f mysql",
+    "db:local:status": "docker compose --env-file .env.mysql.local -f compose.local.yml ps"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

@@ -167,11 +167,12 @@ export async function submitQuote(
 
   const now = new Date();
   const reference = await generateQuoteReference(now);
+  const persisted = stripStaleConditionalFields(data);
 
   try {
     const quote = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       return tx.quoteRequest.create({
-        data: buildQuoteRecord(data, reference, now),
+        data: buildQuoteRecord(persisted, reference, now),
       });
     });
 
@@ -179,9 +180,9 @@ export async function submitQuote(
     const emailConfig = getEmailConfigurationStatus();
     const fromAddress = emailConfig.from ?? "development-log@local";
     const internalRecipient = emailConfig.internalRecipient ?? "development-log@local";
-    const customerMessage = buildCustomerEmail(data, quote.publicReference, fromAddress);
+    const customerMessage = buildCustomerEmail(persisted, quote.publicReference, fromAddress);
     const internalMessage = buildInternalEmail(
-      data,
+      persisted,
       quote.publicReference,
       fromAddress,
       internalRecipient,
@@ -235,6 +236,41 @@ export async function submitQuote(
       message: "We could not submit your enquiry. Please try again.",
     };
   }
+}
+
+function stripStaleConditionalFields(data: QuoteSubmissionPayload): QuoteSubmissionPayload {
+  const specialHandling = data.specialHandling ?? [];
+  const requiresSpecialHandlingDetails = specialHandling.some(
+    (value) => value !== "none" && value !== "not_sure",
+  );
+  const additionalServices = data.additionalServices ?? [];
+
+  return {
+    ...data,
+    productCategoryOther:
+      data.productCategory === "other" ? data.productCategoryOther : undefined,
+    salesChannelOther: data.salesChannels.includes("other_marketplace")
+      ? data.salesChannelOther
+      : undefined,
+    customPlatformDetails: data.salesChannels.includes("custom_platform")
+      ? data.customPlatformDetails
+      : undefined,
+    internationalDestinations: data.deliveryRegions.includes("international")
+      ? data.internationalDestinations
+      : undefined,
+    specialCourierDetails:
+      data.specialCourierRequired === "yes" ? data.specialCourierDetails : undefined,
+    additionalServicesOther: additionalServices.includes("other")
+      ? data.additionalServicesOther
+      : undefined,
+    brandedPackagingDetails: additionalServices.includes("branded_packaging")
+      ? data.brandedPackagingDetails
+      : undefined,
+    returnsVolume: additionalServices.includes("returns") ? data.returnsVolume : undefined,
+    specialHandlingDetails: requiresSpecialHandlingDetails
+      ? data.specialHandlingDetails
+      : undefined,
+  };
 }
 
 function buildQuoteRecord(
