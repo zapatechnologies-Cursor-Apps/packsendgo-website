@@ -171,9 +171,10 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 
 ## Phase 2 — Next.js foundation
 
-**Phase 2A status: COMPLETE — ACCEPTED 2026-08-01**
+Phase 2A status: COMPLETE — ACCEPTED 2026-08-01
+Phase 2B status: COMPLETE — ACCEPTED 2026-08-01
 
-Phase 2 overall is **not** complete. Phase 2A foundation is accepted; remaining homepage, hero and deployment work is deferred.
+Phase 2 overall is **not** complete. Phase 2A foundation and Phase 2B homepage are accepted; deployment and later site phases remain deferred.
 
 Report: `docs/phase-reports/PHASE_2A_FRONTEND_FOUNDATION_REPORT.md`
 
@@ -209,20 +210,45 @@ Report: `docs/phase-reports/PHASE_2A_FRONTEND_FOUNDATION_REPORT.md`
 - [x] Product Owner mobile browser validation (approximately 390 × 844)
 - [x] Product Owner theme validation (System / Light / Dark with persistence)
 
-### Phase 2B / Phase 3 — Deferred (incomplete)
+### Phase 2B — Homepage and Three.js hero
 
-- [ ] Selected Stitch homepage implementation
-- [ ] Real Three.js warehouse hero
-- [ ] Sharp lime route line
-- [ ] Moving lime parcel box
-- [ ] Production logo SVGs
-- [ ] Compact production theme menu
-- [ ] Complete responsive homepage
-- [ ] Final mobile visual acceptance for the completed homepage
-- [ ] Quote form
-- [ ] Legal pages
+**Phase 2B: COMPLETE — ACCEPTED 2026-08-01**
+
+Report: `docs/phase-reports/PHASE_2B_HOMEPAGE_IMPLEMENTATION_REPORT.md`
+
+- [x] Selected Stitch homepage implemented
+- [x] Duplicate service rail excluded
+- [x] Real separate Three.js source adapted
+- [x] Three.js full hero background implemented
+- [x] Sharp lime route line implemented
+- [x] Moving lime parcel box implemented
+- [x] Core Capabilities implemented
+- [x] Compact five-stage process implemented
+- [x] Warehouse-tour placeholder implemented
+- [x] Sales-channel section contrast corrected
+- [x] Customer-category section implemented
+- [x] Operational commitments implemented
+- [x] Final quote CTA implemented
+- [x] Responsive homepage implemented
+- [x] Production logo SVGs created
+- [x] Compact production theme menu implemented
+- [x] Automated lint/typecheck/build passed
+- [x] Product Owner desktop homepage validation
+- [x] Product Owner mobile homepage validation (approximately 390 × 844)
+- [x] Product Owner Three.js hero validation
+- [x] Product Owner lime-route validation
+- [x] Product Owner moving-parcel validation
+- [x] Product Owner Core Capabilities interaction validation
+- [x] Product Owner theme validation
+- [x] Product Owner current SVG logo acceptance
+- [x] Product Owner Phase 2B acceptance (2026-08-01)
 - [ ] Real warehouse media
+- [ ] Quote form and backend
+- [ ] Legal-page implementation
+- [ ] Confirmed contact and company details
 - [ ] Production deployment
+
+### Phase 2B / Phase 3 — Remaining deferred work
 
 ### Authority check
 
@@ -240,6 +266,7 @@ Report: `docs/phase-reports/PHASE_2A_FRONTEND_FOUNDATION_REPORT.md`
 ### Acceptance
 
 - [x] Product Owner Phase 2A acceptance (2026-08-01)
+- [x] Product Owner Phase 2B acceptance (2026-08-01)
 
 ---
 

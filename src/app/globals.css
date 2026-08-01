@@ -70,6 +70,18 @@
     border-radius: 0;
   }
 
+  button,
+  input,
+  [role="menu"],
+  .rounded-sm,
+  .rounded-full {
+    border-radius: 4px;
+  }
+
+  .rounded-full {
+    border-radius: 9999px;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -126,4 +138,31 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.hero-scene-fallback {
+  background:
+    radial-gradient(circle at 72% 42%, rgba(46, 91, 255, 0.16), transparent 42%),
+    radial-gradient(circle at 58% 58%, rgba(209, 255, 38, 0.12), transparent 36%),
+    linear-gradient(180deg, #151920 0%, #121417 100%);
+}
+
+@keyframes parcel-mark-intro {
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.parcel-mark {
+  transform-origin: center;
+  animation: parcel-mark-intro 700ms ease-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parcel-mark {
+    animation: none;
+  }
 }
