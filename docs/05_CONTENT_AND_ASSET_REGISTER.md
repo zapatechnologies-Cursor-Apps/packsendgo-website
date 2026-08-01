@@ -210,7 +210,20 @@ Displaying a platform does not claim a live integration unless separately confir
 | Exterior / signage | — | PENDING OPERATIONAL CONFIRMATION |
 | Team (if approved) | — | PENDING PRODUCT OWNER INPUT |
 
----
+### 8.1 Homepage temporary licensed stock placeholders (2026-08-01)
+
+Licensed stock placeholder — replace with authorised PackSendGo facility media before final production launch.
+
+| Local filename | Homepage usage | Source platform | Source page URL | Photographer | Licence / usage | Download date | Status | Replacement requirement |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `public/images/homepage/capability-ecommerce-fulfilment.jpg` | Core Capabilities — Ecommerce fulfilment | Pexels | https://www.pexels.com/photo/men-working-in-a-warehouse-4481260/ | See source page | Free to use (Pexels licence as presented on source page) | 2026-08-01 | TEMPORARY LICENSED STOCK PLACEHOLDER | Replace with authorised PackSendGo facility media before final production launch |
+| `public/images/homepage/capability-warehousing-storage.jpg` | Core Capabilities — Warehousing and storage | Pexels | https://www.pexels.com/photo/shelves-in-a-warehouse-4481327/ | See source page | Free to use (Pexels licence as presented on source page) | 2026-08-01 | TEMPORARY LICENSED STOCK PLACEHOLDER | Replace with authorised PackSendGo facility media before final production launch |
+| `public/images/homepage/capability-pick-and-pack.jpg` | Core Capabilities — Pick and pack | Pexels | https://www.pexels.com/photo/efficient-warehouse-inventory-handling-process-30824343/ | See source page | Free to use (Pexels licence as presented on source page) | 2026-08-01 | TEMPORARY LICENSED STOCK PLACEHOLDER | Replace with authorised PackSendGo facility media before final production launch |
+| `public/images/homepage/capability-parcel-dispatch.jpg` | Core Capabilities — Parcel dispatch | Pexels | https://www.pexels.com/photo/delivery-men-unloading-boxes-4487513/ | See source page | Free to use (Pexels licence as presented on source page) | 2026-08-01 | TEMPORARY LICENSED STOCK PLACEHOLDER | Replace with authorised PackSendGo facility media before final production launch |
+| `public/images/homepage/capability-returns-processing.jpg` | Core Capabilities — Returns processing | Pexels | https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/ | See source page | Free to use (Pexels licence as presented on source page) | 2026-08-01 | TEMPORARY LICENSED STOCK PLACEHOLDER | Replace with authorised PackSendGo facility media before final production launch |
+| `public/images/homepage/warehouse-tour-placeholder.jpg` | Tour our warehouse section | Pexels | https://www.pexels.com/photo/photo-of-warehouse-4277794/ | See source page | Free to use (Pexels licence as presented on source page) | 2026-08-01 | TEMPORARY LICENSED STOCK PLACEHOLDER | Replace with authorised PackSendGo facility media before final production launch |
+
+**Media-truth rule:** These photographs are real warehouse stock imagery. They do not depict the PackSendGo facility, PackSendGo employees, or PackSendGo-owned equipment. Do not describe them as PackSendGo's warehouse in public copy or alt text.
 
 ## 9. Warehouse video and walkthrough
 
@@ -308,6 +321,7 @@ These directories currently hold approved source or planning assets:
 | `assets/video/raw/` | Local working video files (gitignored) |
 | `assets/warehouse/raw/` | Local working warehouse photography (gitignored) |
 | `design/exports/temp/` | Temporary Stitch or design exports (gitignored) |
+| `public/images/homepage/` | Homepage production images (including temporary licensed stock placeholders) |
 
 ### Proposed production directories — PROPOSED DURING IMPLEMENTATION
 

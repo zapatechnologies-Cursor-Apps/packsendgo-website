@@ -34,11 +34,11 @@ export function WarehouseHeroBoundary({
         <WarehouseHeroScene className="absolute inset-0" />
       ) : null}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/58 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/48 to-transparent"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/28 via-transparent to-background/82"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/72"
         aria-hidden
       />
     </div>
