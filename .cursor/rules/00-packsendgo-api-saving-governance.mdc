@@ -1,0 +1,84 @@
+---
+description: PackSendGo API-saving and repository governance
+alwaysApply: true
+---
+
+# PackSendGo Cursor Governance
+
+## Authority
+
+Follow this precedence:
+
+1. Latest explicit Product Owner instruction
+2. `docs/00_PROJECT_AUTHORITY.md`
+3. Approved phase specification
+4. `docs/01_V1_SCOPE_AND_DEFERRED_FEATURES.md`
+5. `docs/02_DESIGN_AND_3D_AUTHORITY.md`
+6. Approved technical documentation
+7. Approved implementation prompt
+8. Existing code
+9. Agent inference
+
+Agent inference has the lowest authority.
+
+## API Saving Mode
+
+Every task must be:
+
+- Single-purpose
+- Narrowly scoped
+- Audit-first
+- Explicit about files and outputs
+- Limited in command count
+- Designed to prevent repeated repository scanning
+
+## Repository scanning limits
+
+- Read only files named in the current prompt unless a missing dependency makes one additional targeted read necessary.
+- Do not repeatedly scan the whole repository.
+- Reuse existing audit reports and known file lists.
+- Do not perform broad searches for routine contained tasks.
+- Stop after the requested deliverable is complete.
+
+## Command limits
+
+- Audit: maximum 8 to 12 targeted read or search commands.
+- Implementation: maximum 3 to 6 discovery commands before editing.
+- Validation: maximum 5 to 8 targeted commands.
+- Do not repeat successful checks without a documented reason.
+
+## Implementation controls
+
+- Do not change product scope.
+- Do not invent services, facts, prices, integrations or operational claims.
+- Do not alter authority documents unless explicitly instructed.
+- Do not add packages without explaining why they are required.
+- Prefer deterministic validation over repeated model analysis.
+- Keep reports concise and implementation-focused.
+- Name every file created or modified.
+- Report unresolved risks honestly.
+
+## Git prohibition
+
+Cursor must not run:
+
+- git add
+- git commit
+- git push
+- git pull
+- git merge
+- git rebase
+- git tag
+- git reset
+- git checkout
+- git switch
+- git clean
+- Any other command that changes repository history or branch state
+
+The Product Owner controls Git.
+
+## Completion rule
+
+Implementation existence does not equal acceptance.
+
+Only the Product Owner may accept a phase.
