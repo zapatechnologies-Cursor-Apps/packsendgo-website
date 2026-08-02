@@ -1,4 +1,8 @@
 import { z } from "zod";
+import {
+  normaliseWebsite,
+  WEBSITE_VALIDATION_MESSAGE,
+} from "@/lib/quote/normalise-website";
 import { sanitizePlainText } from "@/lib/quote/sanitize";
 import {
   ADDITIONAL_SERVICES,
@@ -123,11 +127,18 @@ const quoteFieldsBaseSchema = z.object({
       .string()
       .trim()
       .max(500)
+      .optional()
       .refine(
-        (value) => value === undefined || /^https?:\/\/.+/i.test(value),
-        "Enter a valid website URL starting with http:// or https://.",
+        (value) => value === undefined || normaliseWebsite(value).ok,
+        WEBSITE_VALIDATION_MESSAGE,
       )
-      .optional(),
+      .transform((value) => {
+        if (value === undefined) {
+          return undefined;
+        }
+        const result = normaliseWebsite(value);
+        return result.ok ? result.url : value;
+      }),
   ),
   country: z.enum(enumValues(COUNTRIES), { message: "Select your country." }),
   preferredContactMethod: z.enum(enumValues(PREFERRED_CONTACT_METHODS), {

@@ -624,6 +624,27 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 ### Documentation update
 
 - [x] Phase 7 local validation recorded in persistence report
+- [x] Phase 7 website normalisation report — `docs/phase-reports/PHASE_7_QUOTATION_WEBSITE_NORMALISATION_REPORT.md` — **2026-08-02**
+
+### Website field normalisation (2026-08-02)
+
+Report: `docs/phase-reports/PHASE_7_QUOTATION_WEBSITE_NORMALISATION_REPORT.md`
+
+- [x] Bare domain accepted
+- [x] `www` domain accepted
+- [x] Explicit HTTP preserved
+- [x] Explicit HTTPS preserved
+- [x] Missing protocol defaults to HTTPS
+- [x] Unsupported schemes rejected
+- [x] Server-side normalisation implemented
+- [x] Normalised value persisted
+- [x] Direct API validation passed
+- [x] Browser validation passed (desktop step-1; mobile field layout)
+- [x] Local database validation passed
+- [x] Synthetic test data removed
+- [x] Lint passed
+- [x] Typecheck passed
+- [x] Build passed
 
 ### Git (Product Owner only)
 
