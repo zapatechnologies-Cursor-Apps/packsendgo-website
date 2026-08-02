@@ -39,7 +39,7 @@ export async function POST(request: Request) {
         ? 503
         : result.code === "rate-limit"
           ? 429
-          : result.code === "honeypot" || result.code === "turnstile"
+          : result.code === "honeypot"
             ? 400
             : 400;
 

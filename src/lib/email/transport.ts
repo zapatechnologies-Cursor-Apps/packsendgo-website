@@ -1,3 +1,4 @@
+import { ResendTransport } from "@/lib/email/resend-transport";
 import type { EmailDeliveryResult, EmailMessage, EmailTransport } from "@/lib/email/types";
 import { getEmailConfigurationStatus } from "@/lib/email/types";
 
@@ -17,6 +18,7 @@ export class DevelopmentLoggingTransport implements EmailTransport {
 
 export class MissingConfigurationTransport implements EmailTransport {
   async send(): Promise<EmailDeliveryResult> {
+    console.warn("[quote-email] Email configuration incomplete — notification not delivered.");
     return {
       status: "FAILED",
       providerResponse: "Email configuration is not available.",
@@ -26,11 +28,13 @@ export class MissingConfigurationTransport implements EmailTransport {
 
 export function createEmailTransport(): EmailTransport {
   const config = getEmailConfigurationStatus();
-  if (!config.isConfigured) {
-    if (process.env.NODE_ENV === "production") {
-      return new MissingConfigurationTransport();
-    }
-    return new DevelopmentLoggingTransport();
+
+  if (config.isConfigured && config.resendApiKey) {
+    return new ResendTransport(config.resendApiKey);
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    return new MissingConfigurationTransport();
   }
 
   return new DevelopmentLoggingTransport();

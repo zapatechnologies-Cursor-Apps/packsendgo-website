@@ -572,6 +572,7 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [x] Client-side usability validation
 - [x] Server-side authoritative validation
 - [x] Turnstile integration (local boundary; live verification pending)
+- [x] Launch path: Turnstile removed from active quotation flow — **2026-08-02 Batch 1**
 - [x] Quotation API endpoint
 - [x] Reference generation
 - [x] Success state
@@ -603,6 +604,11 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [x] Review and consent step verified
 - [x] Product Owner local browser validation — **PASSED — 2026-08-01**
 - [x] Session draft cleared after successful submission
+- [x] Launch form no longer contains Turnstile — **2026-08-02 Batch 1**
+- [x] Launch form has no development verification — **2026-08-02 Batch 1**
+- [x] Valid quote persists without verification token — **2026-08-02 Batch 1**
+- [x] Honeypot remains active — **2026-08-02 Batch 1**
+- [x] Notification attempts created on submission — **2026-08-02 Batch 1**
 
 ### Mobile validation
 
@@ -614,7 +620,7 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [ ] Staging migration deployed
 - [ ] Production migration deployed
 - [ ] Transactional email provider configured
-- [ ] Live Turnstile verified in staging/production
+- [ ] Live Turnstile verified in staging/production (deferred to Phase 9)
 - [ ] Production rate limiting complete
 - [ ] Privacy Policy implemented
 - [ ] Retention period approved
@@ -666,14 +672,17 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 ### Implementation tasks
 
-- [ ] External email provider configured
+- [x] Resend package added — **2026-08-02 Batch 1**
+- [x] Resend transport implemented — **2026-08-02 Batch 1**
+- [x] Customer confirmation email template (plain text) — **2026-08-02 Batch 1**
+- [x] PackSendGo internal notification template (plain text) — **2026-08-02 Batch 1**
+- [x] Email dispatch on successful submission — **2026-08-02 Batch 1**
+- [x] Failure logging to `QuoteNotificationAttempt` — **2026-08-02 Batch 1**
+- [x] Behaviour when email fails after database save verified — **2026-08-02 Batch 1**
+- [x] Persistence before email delivery — **2026-08-02 Batch 1**
+- [ ] External email provider configured on Hostinger
 - [ ] Sender domain verification (SPF, DKIM, DMARC)
-- [ ] Customer confirmation email template
-- [ ] PackSendGo internal notification template
-- [ ] Email dispatch on successful submission
-- [ ] Failure logging to `QuoteNotificationAttempt` or equivalent
-- [ ] Behaviour when email fails after database save verified
-- [ ] Test emails sent and reviewed
+- [ ] Test emails sent and reviewed on Hostinger
 
 ### Validation
 

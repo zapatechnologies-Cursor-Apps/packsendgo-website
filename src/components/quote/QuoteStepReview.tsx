@@ -3,15 +3,12 @@
 import Link from "next/link";
 import type { UseFormReturn } from "react-hook-form";
 import { Field, FieldError, TextArea } from "@/components/forms/Field";
-import { TurnstileField } from "@/components/quote/TurnstileField";
 import { PRIVACY_POLICY_PATH } from "@/lib/quote/constants";
 import { buildReviewSections } from "@/lib/quote/review-summary";
 import type { QuoteFormValues } from "@/lib/quote/schema";
 
 type StepProps = {
   form: UseFormReturn<QuoteFormValues>;
-  turnstileToken: string;
-  onTurnstileTokenChange: (token: string) => void;
   onGoToStep: (step: number) => void;
   submitError?: string;
   configurationError?: boolean;
@@ -19,8 +16,6 @@ type StepProps = {
 
 export function QuoteStepReview({
   form,
-  turnstileToken,
-  onTurnstileTokenChange,
   onGoToStep,
   submitError,
   configurationError,
@@ -33,7 +28,6 @@ export function QuoteStepReview({
 
   const values = watch();
   const sections = buildReviewSections(values);
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? "";
 
   return (
     <div className="space-y-8">
@@ -136,29 +130,6 @@ export function QuoteStepReview({
           <FieldError message={errors.accuracyConfirmation.message} />
         ) : null}
       </fieldset>
-
-      <section aria-labelledby="verification-heading" className="space-y-3 border border-outline/20 p-4">
-        <h3 id="verification-heading" className="text-sm font-semibold text-on-surface">
-          Verification
-          <span className="ml-2 text-xs font-normal text-on-surface-variant">Required</span>
-        </h3>
-        {siteKey ? (
-          <TurnstileField siteKey={siteKey} token={turnstileToken} onTokenChange={onTurnstileTokenChange} />
-        ) : (
-          <>
-            <p className="text-sm text-on-surface-variant">
-              Development verification placeholder. This is not a live security check.
-            </p>
-            <button
-              type="button"
-              onClick={() => onTurnstileTokenChange("development-placeholder-token")}
-              className="inline-flex min-h-11 items-center justify-center border border-outline/30 px-4 text-sm font-semibold text-on-surface"
-            >
-              {turnstileToken ? "Development verification complete" : "Complete development verification"}
-            </button>
-          </>
-        )}
-      </section>
 
       {submitError ? (
         <div
