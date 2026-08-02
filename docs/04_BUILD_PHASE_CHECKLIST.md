@@ -147,6 +147,12 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 ### Validation
 
 - [x] Design tokens exported
+- [x] Light-mode token system corrected — **2026-08-02 Batch 2**
+- [x] Light-mode header and navigation — **2026-08-02 Batch 2**
+- [x] Light-mode homepage sections — **2026-08-02 Batch 2**
+- [x] Mobile homepage density refinement — **2026-08-02 Batch 2**
+- [x] Mobile Core Capabilities horizontal selector — **2026-08-02 Batch 2**
+- [x] Light-mode quotation form presentation — **2026-08-02 Batch 2**
 - [ ] Asset register updated
 
 ### Browser validation
@@ -267,7 +273,7 @@ Report: `docs/phase-reports/PHASE_3_HOMEPAGE_MEDIA_REFINEMENT_REPORT.md`
 
 **Still incomplete:**
 
-- [ ] Light-mode contrast correction
+- [x] Light-mode contrast correction — **2026-08-02 Batch 2**
 - [ ] Light-mode Product Owner acceptance
 - [ ] Genuine PackSendGo warehouse photography
 - [ ] Real warehouse video
@@ -609,6 +615,8 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [x] Valid quote persists without verification token — **2026-08-02 Batch 1**
 - [x] Honeypot remains active — **2026-08-02 Batch 1**
 - [x] Notification attempts created on submission — **2026-08-02 Batch 1**
+- [x] Light-mode quotation form presentation — **2026-08-02 Batch 2**
+- [x] Light-mode form error states readable — **2026-08-02 Batch 2**
 
 ### Mobile validation
 
@@ -823,7 +831,7 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 - [ ] Production rate limiting
 - [ ] Custom domain
 - [ ] SSL/domain validation
-- [ ] Light-mode correction
+- [ ] Light-mode correction — locally corrected **2026-08-02 Batch 2**; hosted validation pending
 - [ ] Public indexing
 - [ ] Public launch
 

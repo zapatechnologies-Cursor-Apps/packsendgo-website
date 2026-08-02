@@ -15,11 +15,11 @@ export function CustomerCategories() {
           align="center"
         />
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
           {customerCategories.map((category) => (
             <article
               key={category.id}
-              className="border border-outline/20 bg-deep-charcoal p-8 transition-colors hover:border-cobalt/40"
+              className="border border-outline/20 bg-surface-panel p-6 shadow-elevated transition-colors hover:border-cobalt/40 md:p-8"
             >
               <div className="mb-4 h-px w-10 bg-cobalt" aria-hidden />
               <h3 className="font-display text-xl font-semibold text-on-surface md:text-2xl">

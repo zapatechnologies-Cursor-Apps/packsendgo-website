@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils";
 export function Hero() {
   return (
     <section
-      className="relative min-h-[min(92vh,56rem)] overflow-hidden"
+      className="relative min-h-[min(72svh,28rem)] overflow-hidden md:min-h-[min(92vh,56rem)]"
       aria-labelledby="hero-heading"
     >
       <WarehouseHeroBoundary />
 
-      <Container className="relative z-10 flex min-h-[min(92vh,56rem)] flex-col justify-center py-16 md:py-24">
-        <div className="max-w-2xl space-y-6">
+      <Container className="relative z-10 flex min-h-[min(72svh,28rem)] flex-col justify-center py-10 md:min-h-[min(92vh,56rem)] md:py-24">
+        <div className="max-w-2xl space-y-5 md:space-y-6">
           <p className="text-xs font-semibold tracking-[0.18em] text-cobalt uppercase">
             Premium ecommerce fulfilment
           </p>
@@ -33,7 +33,7 @@ export function Hero() {
               href="/get-a-quote"
               className={cn(
                 "inline-flex min-h-11 items-center justify-center bg-signal-lime px-6 text-sm font-semibold",
-                "text-midnight-graphite hover:brightness-95 active:brightness-90",
+                "text-on-lime hover:brightness-95 active:brightness-90",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt",
               )}
             >

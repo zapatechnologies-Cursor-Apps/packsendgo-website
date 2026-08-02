@@ -43,42 +43,54 @@ export function CoreCapabilities() {
       <Container>
         <SectionHeading title="Core Capabilities" />
 
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div
-            className="flex flex-col gap-2 lg:col-span-4"
-            role="tablist"
-            aria-label="Core capabilities"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocus={() => setPaused(true)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) {
-                setPaused(false);
-              }
-            }}
-          >
-            {capabilities.map((item, index) => {
-              const selected = index === activeIndex;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  role="tab"
-                  id={`capability-tab-${item.id}`}
-                  aria-selected={selected}
-                  aria-controls={`capability-panel-${item.id}`}
-                  onClick={() => selectIndex(index)}
-                  className={cn(
-                    "min-h-11 border-l-2 px-4 py-3 text-left transition-colors",
-                    selected
-                      ? "border-signal-lime bg-surface-container/40 text-on-surface"
-                      : "border-transparent text-on-surface-variant hover:bg-surface-container/20 hover:text-on-surface",
-                  )}
-                >
-                  {item.title}
-                </button>
-              );
-            })}
+        <div className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+          <div className="relative w-full min-w-0 overflow-hidden lg:col-span-4">
+            <div
+              role="tablist"
+              aria-label="Core capabilities"
+              className={cn(
+                "flex w-full max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [scrollbar-width:thin]",
+                "lg:flex-col lg:gap-2 lg:overflow-visible lg:snap-none lg:pb-0",
+                "-mx-margin-mobile px-margin-mobile lg:mx-0 lg:px-0",
+              )}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+              onFocus={() => setPaused(true)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                  setPaused(false);
+                }
+              }}
+            >
+              {capabilities.map((item, index) => {
+                const selected = index === activeIndex;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="tab"
+                    id={`capability-tab-${item.id}`}
+                    aria-selected={selected}
+                    aria-controls={`capability-panel-${item.id}`}
+                    onClick={() => selectIndex(index)}
+                    className={cn(
+                      "min-h-11 shrink-0 text-left text-sm transition-colors",
+                      "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt",
+                      "min-w-[10.5rem] max-w-[12rem] snap-start border px-4 py-3 lg:min-w-0 lg:max-w-none lg:snap-align-none lg:border-l-2 lg:border-transparent lg:px-4 lg:py-3",
+                      selected
+                        ? "border-signal-lime bg-signal-lime font-semibold text-on-lime ring-2 ring-signal-lime/35 lg:border-transparent lg:border-l-signal-lime lg:bg-surface-container/40 lg:font-normal lg:text-on-surface lg:ring-0"
+                        : "border-outline/30 bg-surface-panel font-medium text-on-surface hover:border-outline/50 lg:border-transparent lg:bg-transparent lg:font-normal lg:text-on-surface-variant lg:hover:bg-surface-container/20 lg:hover:text-on-surface",
+                    )}
+                  >
+                    {item.title}
+                  </button>
+                );
+              })}
+            </div>
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background to-transparent lg:hidden"
+              aria-hidden
+            />
           </div>
 
           <div
@@ -87,16 +99,16 @@ export function CoreCapabilities() {
             aria-labelledby={`capability-tab-${active.id}`}
             className="lg:col-span-8"
           >
-            <div className="grid overflow-hidden border border-outline/20 bg-deep-charcoal md:grid-cols-2">
-              <div className="flex flex-col justify-center p-8 md:p-10">
-                <div className="mb-4 h-px w-16 bg-cobalt" aria-hidden />
+            <div className="grid overflow-hidden border border-outline/20 bg-surface-panel shadow-elevated md:grid-cols-2">
+              <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
+                <div className="mb-3 h-px w-16 bg-cobalt md:mb-4" aria-hidden />
                 <h3 className="font-display text-2xl font-semibold text-on-surface md:text-3xl">
                   {active.title}
                 </h3>
-                <p className="mt-4 text-base leading-relaxed text-on-surface-variant">
+                <p className="mt-3 text-base leading-relaxed text-on-surface-variant md:mt-4">
                   {active.description}
                 </p>
-                <div className="mt-6 border border-outline/15 bg-surface-container/50 p-4">
+                <div className="mt-4 border border-outline/15 bg-surface-container/50 p-3 md:mt-6 md:p-4">
                   <p className="text-xs font-semibold tracking-[0.14em] text-cobalt uppercase">
                     Customer benefit
                   </p>
@@ -104,12 +116,12 @@ export function CoreCapabilities() {
                 </div>
                 <Link
                   href={active.href}
-                  className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-signal-lime hover:underline"
+                  className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-signal-lime hover:underline md:mt-6"
                 >
                   Explore this service
                 </Link>
               </div>
-              <div className="relative min-h-56 overflow-hidden border-t border-outline/10 md:min-h-[22rem] md:border-t-0 md:border-l">
+              <div className="relative min-h-48 overflow-hidden border-t border-outline/10 md:min-h-[22rem] md:border-t-0 md:border-l">
                 {capabilities.map((item, index) => (
                   <Image
                     key={item.id}
@@ -126,28 +138,12 @@ export function CoreCapabilities() {
                   />
                 ))}
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-deep-charcoal/35 via-transparent to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-overlay/35 via-transparent to-transparent"
                   aria-hidden
                 />
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-6 flex items-center justify-center gap-2 md:hidden">
-          {capabilities.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              aria-label={`Show ${item.title}`}
-              aria-current={index === activeIndex}
-              onClick={() => selectIndex(index)}
-              className={cn(
-                "h-2.5 w-2.5 rounded-full",
-                index === activeIndex ? "bg-signal-lime" : "bg-outline/40",
-              )}
-            />
-          ))}
         </div>
       </Container>
     </section>

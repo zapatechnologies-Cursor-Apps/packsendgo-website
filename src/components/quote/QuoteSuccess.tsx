@@ -15,7 +15,7 @@ export function QuoteSuccess({ reference }: { reference: string }) {
       </p>
       <Link
         href="/"
-        className="inline-flex min-h-11 items-center justify-center bg-signal-lime px-6 text-sm font-semibold text-midnight-graphite"
+        className="inline-flex min-h-11 items-center justify-center bg-signal-lime px-6 text-sm font-semibold text-on-lime"
       >
         Return to homepage
       </Link>

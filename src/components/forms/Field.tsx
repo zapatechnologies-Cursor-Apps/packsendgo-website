@@ -64,14 +64,14 @@ export function Field({ label, htmlFor, optional, hint, error, children }: Field
 
 export function FieldError({ message, id }: { message: string; id?: string }) {
   return (
-    <p id={id} role="alert" className="text-sm text-red-300">
+    <p id={id} role="alert" className="text-sm text-error-foreground">
       {message}
     </p>
   );
 }
 
 const controlClassName =
-  "min-h-11 w-full border border-outline/25 bg-surface-container px-3 py-2 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt";
+  "min-h-11 w-full border border-outline/25 bg-input-background px-3 py-2 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt";
 
 export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={cn(controlClassName, props.className)} />;

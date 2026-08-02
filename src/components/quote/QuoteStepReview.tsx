@@ -33,7 +33,7 @@ export function QuoteStepReview({
     <div className="space-y-8">
       <section
         aria-labelledby="review-summary-heading"
-        className="space-y-6 border border-outline/20 bg-surface-container/30 p-6"
+        className="space-y-6 border border-outline/20 bg-surface-container/30 p-6 shadow-elevated"
       >
         <h2 id="review-summary-heading" className="font-display text-2xl font-semibold text-on-surface">
           Review your enquiry
@@ -134,9 +134,9 @@ export function QuoteStepReview({
       {submitError ? (
         <div
           role="alert"
-          className="border border-red-400/40 bg-red-950/20 p-4 text-sm text-red-200"
+          className="border border-error-border bg-error-background p-4 text-sm text-error-foreground"
         >
-          <p className="font-semibold text-red-100">
+          <p className="font-semibold text-error-title">
             {configurationError ? "Service temporarily unavailable" : "Submission failed"}
           </p>
           <p className="mt-1">{submitError}</p>

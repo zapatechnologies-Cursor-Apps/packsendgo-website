@@ -9,7 +9,7 @@ export function SiteHeader() {
   const navItems = mainNavigation.filter((item) => item.href !== "/");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-outline/20 bg-background/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-outline/20 bg-background/90 shadow-elevated backdrop-blur-sm">
       <div className="mx-auto flex w-full max-w-container items-center justify-between gap-4 px-margin-mobile py-4 md:px-margin-desktop">
         <PackSendGoLogo variant="lime" priority />
 
@@ -38,7 +38,7 @@ export function SiteHeader() {
             href="/get-a-quote"
             className={cn(
               "hidden min-h-11 items-center justify-center bg-signal-lime px-4 text-sm font-semibold",
-              "text-midnight-graphite sm:inline-flex",
+              "text-on-lime sm:inline-flex",
               "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt",
             )}
           >
