@@ -1,5 +1,5 @@
 export const QUOTE_ROUTE = "/get-a-quote";
-export const PRIVACY_POLICY_PATH = "/privacy";
+export const PRIVACY_POLICY_PATH = "/privacy-policy";
 export const QUOTE_DRAFT_STORAGE_KEY = "packsendgo-quote-draft-v1";
 export const QUOTE_IDEMPOTENCY_STORAGE_KEY = "packsendgo-quote-idempotency-v1";
 export const MAX_QUOTE_PAYLOAD_BYTES = 65536;

@@ -69,7 +69,7 @@ export function ThemeMenu() {
         <div
           role="menu"
           aria-label="Theme options"
-          className="absolute top-[calc(100%+0.5rem)] right-0 z-50 min-w-36 border border-outline/20 bg-surface-container p-1 shadow-none"
+          className="absolute top-[calc(100%+0.5rem)] right-0 z-50 min-w-36 border border-outline/20 bg-surface-container p-1 shadow-elevated"
         >
           {themes.map((item) => (
             <button

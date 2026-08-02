@@ -12,7 +12,7 @@ export function OperationalCommitments() {
       <Container>
         <SectionHeading title="Your fulfilment plan, clearly defined" />
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {operationalCommitments.map((item) => (
             <article
               key={item.title}

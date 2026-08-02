@@ -416,10 +416,6 @@ export const quoteSubmissionPayloadSchema = quoteFieldsBaseSchema
       (value) => (typeof value === "string" ? sanitizePlainText(value) : value),
       z.string().min(16).max(64),
     ),
-    turnstileToken: z.preprocess(
-      (value) => (typeof value === "string" ? sanitizePlainText(value) : value),
-      z.string().min(1, "Complete the verification step."),
-    ),
     website: z.preprocess(
       (value) => (typeof value === "string" ? sanitizePlainText(value) : value),
       z.string().max(0).optional(),

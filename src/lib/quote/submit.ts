@@ -10,7 +10,6 @@ import { generateQuoteReference } from "@/lib/quote/reference";
 import type { QuoteSubmissionPayload } from "@/lib/quote/schema";
 import { quoteSubmissionPayloadSchema } from "@/lib/quote/schema";
 import { rateLimiter } from "@/lib/security/rate-limit";
-import { verifyTurnstileToken } from "@/lib/security/turnstile";
 
 export type SubmitQuoteSuccess = {
   ok: true;
@@ -25,7 +24,6 @@ export type SubmitQuoteFailure = {
     | "invalid-payload"
     | "honeypot"
     | "rate-limit"
-    | "turnstile"
     | "configuration"
     | "duplicate-in-flight"
     | "server";
@@ -43,27 +41,6 @@ export function getRuntimeConfigurationIssues(): RuntimeConfigurationIssue[] {
 
   if (!process.env.DATABASE_URL?.trim()) {
     issues.push({ key: "DATABASE_URL", detail: "Database connection is not configured." });
-  }
-
-  if (process.env.NODE_ENV === "production") {
-    if (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim()) {
-      issues.push({
-        key: "NEXT_PUBLIC_TURNSTILE_SITE_KEY",
-        detail: "Turnstile site key is required in production.",
-      });
-    }
-    if (!process.env.TURNSTILE_SECRET_KEY?.trim()) {
-      issues.push({
-        key: "TURNSTILE_SECRET_KEY",
-        detail: "Turnstile secret key is required in production.",
-      });
-    }
-    if (!getEmailConfigurationStatus().isConfigured) {
-      issues.push({
-        key: "EMAIL_FROM/QUOTE_NOTIFICATION_EMAIL",
-        detail: "Email sender and internal recipient must be configured in production.",
-      });
-    }
   }
 
   return issues;
@@ -122,15 +99,6 @@ export async function submitQuote(
     };
   }
 
-  if (configIssues.length > 0 && process.env.NODE_ENV === "production") {
-    return {
-      ok: false,
-      code: "configuration",
-      message:
-        "Quotation submission is temporarily unavailable. Please contact PackSendGo directly.",
-    };
-  }
-
   const rateLimit = await rateLimiter.check({
     email: data.email,
     idempotencyKey: data.idempotencyKey,
@@ -140,15 +108,6 @@ export async function submitQuote(
       ok: false,
       code: "rate-limit",
       message: "Too many submission attempts. Please try again later.",
-    };
-  }
-
-  const turnstile = await verifyTurnstileToken(data.turnstileToken);
-  if (!turnstile.success) {
-    return {
-      ok: false,
-      code: "turnstile",
-      message: "Verification failed. Please try again.",
     };
   }
 
@@ -176,8 +135,14 @@ export async function submitQuote(
       });
     });
 
-    const transport = createEmailTransport();
     const emailConfig = getEmailConfigurationStatus();
+    if (!emailConfig.isConfigured) {
+      console.warn(
+        "[quote-submit] Email configuration incomplete — quotation saved; notification delivery skipped or logged.",
+      );
+    }
+
+    const transport = createEmailTransport();
     const fromAddress = emailConfig.from ?? "development-log@local";
     const internalRecipient = emailConfig.internalRecipient ?? "development-log@local";
     const customerMessage = buildCustomerEmail(persisted, quote.publicReference, fromAddress);

@@ -44,7 +44,6 @@ export function QuoteForm() {
   const [configurationError, setConfigurationError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [successReference, setSuccessReference] = useState<string | null>(null);
-  const [turnstileToken, setTurnstileToken] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [liveMessage, setLiveMessage] = useState("");
   const summaryErrorRef = useRef<HTMLDivElement>(null);
@@ -186,18 +185,12 @@ export function QuoteForm() {
     setSubmitError(null);
     setConfigurationError(false);
     setSummaryError(null);
-    setTurnstileToken("");
     setHoneypot("");
     setLiveMessage("Quotation draft cleared. Step 1 of 5.");
   }
 
   async function handleSubmit() {
     if (!validateCurrentStep(5)) return;
-    if (!turnstileToken) {
-      setSubmitError("Complete the verification step before submitting.");
-      setLiveMessage("Verification is required before submission.");
-      return;
-    }
 
     setSubmitting(true);
     setSubmitError(null);
@@ -217,7 +210,6 @@ export function QuoteForm() {
             ? websiteNormalisation.url
             : values.websiteUrl,
         idempotencyKey: getOrCreateIdempotencyKey(),
-        turnstileToken,
         website: honeypot,
       };
 
@@ -241,7 +233,6 @@ export function QuoteForm() {
           response.status === 503 || (!result.ok && "code" in result && result.code === "configuration");
         setConfigurationError(isConfiguration);
         setSubmitError(result.ok ? "We could not submit your enquiry." : result.message);
-        setTurnstileToken("");
         setLiveMessage(
           isConfiguration
             ? "Quotation submission is temporarily unavailable."
@@ -258,7 +249,6 @@ export function QuoteForm() {
     } catch {
       setSubmitError("We could not submit your enquiry. Please try again.");
       setLiveMessage("Submission failed due to a network error.");
-      setTurnstileToken("");
     } finally {
       setSubmitting(false);
     }
@@ -314,8 +304,6 @@ export function QuoteForm() {
       {step === 5 ? (
         <QuoteStepReview
           form={form}
-          turnstileToken={turnstileToken}
-          onTurnstileTokenChange={setTurnstileToken}
           onGoToStep={handleGoToStep}
           submitError={submitError ?? undefined}
           configurationError={configurationError}

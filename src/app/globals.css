@@ -8,14 +8,27 @@
   --surface-container-high: #272a2f;
   --midnight-graphite: #121417;
   --deep-charcoal: #1c1f24;
+  --surface-panel: #1c1f24;
+  --surface-promo: #121417;
+  --surface-overlay: #1c1f24;
   --on-surface: #e1e2e9;
   --on-surface-variant: #c6c6ca;
+  --on-surface-promo: #e1e2e9;
+  --on-surface-promo-variant: #c6c6ca;
+  --on-lime: #121417;
   --outline: #8f9094;
+  --input-background: #1d2025;
+  --input-border: rgba(143, 144, 148, 0.35);
+  --error-foreground: #fca5a5;
+  --error-title: #fecaca;
+  --error-background: rgba(69, 10, 10, 0.22);
+  --error-border: rgba(248, 113, 113, 0.4);
+  --shadow-elevated: none;
   --cobalt: #2e5bff;
   --signal-lime: #d1ff26;
   --margin-mobile: 24px;
   --margin-desktop: 80px;
-  --section-gap-mobile: 80px;
+  --section-gap-mobile: 56px;
   --container-max: 1280px;
 }
 
@@ -23,13 +36,26 @@
   --background: #f5f5f0;
   --foreground: #121417;
   --surface: #ffffff;
-  --surface-container: #ecece7;
-  --surface-container-high: #e2e2dc;
+  --surface-container: #f0f0eb;
+  --surface-container-high: #e4e4de;
   --midnight-graphite: #121417;
-  --deep-charcoal: #1c1f24;
+  --deep-charcoal: #ffffff;
+  --surface-panel: #ffffff;
+  --surface-promo: #1a2332;
+  --surface-overlay: #1a2332;
   --on-surface: #121417;
   --on-surface-variant: #45474a;
-  --outline: #8f9094;
+  --on-surface-promo: #e8eaed;
+  --on-surface-promo-variant: #b8bcc4;
+  --on-lime: #121417;
+  --outline: #6b6d70;
+  --input-background: #ffffff;
+  --input-border: rgba(107, 109, 112, 0.35);
+  --error-foreground: #9f1239;
+  --error-title: #881337;
+  --error-background: #fff1f2;
+  --error-border: #fecdd3;
+  --shadow-elevated: 0 1px 3px rgba(18, 20, 23, 0.08), 0 4px 16px rgba(18, 20, 23, 0.04);
 }
 
 .dark {
@@ -38,8 +64,13 @@
   --surface: #101418;
   --surface-container: #1d2025;
   --surface-container-high: #272a2f;
+  --surface-panel: #1c1f24;
+  --surface-promo: #121417;
+  --surface-overlay: #1c1f24;
   --on-surface: #e1e2e9;
   --on-surface-variant: #c6c6ca;
+  --on-surface-promo: #e1e2e9;
+  --on-surface-promo-variant: #c6c6ca;
 }
 
 @theme inline {
@@ -50,9 +81,20 @@
   --color-surface-container-high: var(--surface-container-high);
   --color-midnight-graphite: var(--midnight-graphite);
   --color-deep-charcoal: var(--deep-charcoal);
+  --color-surface-panel: var(--surface-panel);
+  --color-surface-promo: var(--surface-promo);
+  --color-surface-overlay: var(--surface-overlay);
   --color-on-surface: var(--on-surface);
   --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-surface-promo: var(--on-surface-promo);
+  --color-on-surface-promo-variant: var(--on-surface-promo-variant);
+  --color-on-lime: var(--on-lime);
   --color-outline: var(--outline);
+  --color-input-background: var(--input-background);
+  --color-error-foreground: var(--error-foreground);
+  --color-error-title: var(--error-title);
+  --color-error-background: var(--error-background);
+  --color-error-border: var(--error-border);
   --color-cobalt: var(--cobalt);
   --color-signal-lime: var(--signal-lime);
   --font-sans: var(--font-geist);
@@ -61,6 +103,7 @@
   --spacing-margin-desktop: var(--margin-desktop);
   --spacing-section-gap-mobile: var(--section-gap-mobile);
   --width-container: var(--container-max);
+  --shadow-elevated: var(--shadow-elevated);
 }
 
 @layer base {
@@ -72,6 +115,8 @@
 
   button,
   input,
+  select,
+  textarea,
   [role="menu"],
   .rounded-sm,
   .rounded-full {
@@ -110,6 +155,12 @@
     outline: 2px solid var(--cobalt);
     outline-offset: 2px;
   }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--on-surface-variant);
+    opacity: 0.85;
+  }
 }
 
 @utility max-w-container {
@@ -126,6 +177,10 @@
 
 @utility py-section-gap-mobile {
   padding-block: var(--section-gap-mobile);
+}
+
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
 }
 
 .sr-only {
@@ -145,6 +200,13 @@
     radial-gradient(circle at 72% 42%, rgba(46, 91, 255, 0.16), transparent 42%),
     radial-gradient(circle at 58% 58%, rgba(209, 255, 38, 0.12), transparent 36%),
     linear-gradient(180deg, #151920 0%, #121417 100%);
+}
+
+.light .hero-scene-fallback {
+  background:
+    radial-gradient(circle at 72% 42%, rgba(46, 91, 255, 0.1), transparent 42%),
+    radial-gradient(circle at 58% 58%, rgba(209, 255, 38, 0.08), transparent 36%),
+    linear-gradient(180deg, #eef0f4 0%, #f5f5f0 100%);
 }
 
 @keyframes parcel-mark-intro {

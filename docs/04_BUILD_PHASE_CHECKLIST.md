@@ -147,6 +147,12 @@ Granular phased build checklist for PackSendGo Website V1. Mark items `[x]` only
 ### Validation
 
 - [x] Design tokens exported
+- [x] Light-mode token system corrected — **2026-08-02 Batch 2**
+- [x] Light-mode header and navigation — **2026-08-02 Batch 2**
+- [x] Light-mode homepage sections — **2026-08-02 Batch 2**
+- [x] Mobile homepage density refinement — **2026-08-02 Batch 2**
+- [x] Mobile Core Capabilities horizontal selector — **2026-08-02 Batch 2**
+- [x] Light-mode quotation form presentation — **2026-08-02 Batch 2**
 - [ ] Asset register updated
 
 ### Browser validation
@@ -267,7 +273,7 @@ Report: `docs/phase-reports/PHASE_3_HOMEPAGE_MEDIA_REFINEMENT_REPORT.md`
 
 **Still incomplete:**
 
-- [ ] Light-mode contrast correction
+- [x] Light-mode contrast correction — **2026-08-02 Batch 2**
 - [ ] Light-mode Product Owner acceptance
 - [ ] Genuine PackSendGo warehouse photography
 - [ ] Real warehouse video
@@ -417,36 +423,83 @@ Do not mark Phase 3A production complete until database, credentials, legal cont
 
 ### Authority check
 
-- [ ] Pages aligned with `docs/01_V1_SCOPE_AND_DEFERRED_FEATURES.md` §3
+- [x] Pages aligned with `docs/01_V1_SCOPE_AND_DEFERRED_FEATURES.md` §3 — **2026-08-02 Batch 3**
 
 ### Implementation tasks
 
-- [ ] Services page
-- [ ] How It Works page
-- [ ] Our Warehouse page (structure; media pending where required)
-- [ ] About PackSendGo page
-- [ ] Privacy Policy template
-- [ ] Cookie Policy template
-- [ ] Website Terms template
-- [ ] Internal linking and navigation complete
-- [ ] Automated validation passing
+- [x] Services page — **2026-08-02 Batch 3**
+- [x] How It Works page — **2026-08-02 Batch 3**
+- [x] Our Warehouse page — **2026-08-02 Batch 3**
+- [x] About PackSendGo page — **2026-08-02 Batch 3**
+- [x] Privacy Policy template — **2026-08-02 Batch 4**
+- [x] Cookie Policy template — **2026-08-02 Batch 4**
+- [x] Website Terms template — **2026-08-02 Batch 4**
+- [x] Internal linking and navigation complete — **2026-08-02 Batch 4**
+- [x] Automated validation passing — **2026-08-02 Batch 4**
 
 ### Validation
 
-- [ ] Build and lint pass
-- [ ] No broken internal links
+- [x] Build and lint pass — **2026-08-02 Batch 3**
+- [x] No broken internal links (core pages) — **2026-08-02 Batch 3**
 
 ### Browser validation
 
-- [ ] All public pages reviewed on desktop
+- [x] All public pages reviewed on desktop — **2026-08-02 Batch 3 (local)**
 
 ### Mobile validation
 
-- [ ] All public pages reviewed on mobile
+- [x] All public pages reviewed on mobile — **2026-08-02 Batch 3 (local)**
 
 ### Documentation update
 
 - [ ] Legal content status updated in asset register
+- [x] Phase 4 core pages report — **2026-08-02 Batch 3**
+
+### Additional Batch 3 items
+
+- [x] Individual page metadata — **2026-08-02 Batch 3**
+- [x] Desktop navigation — **2026-08-02 Batch 3**
+- [x] Mobile navigation — **2026-08-02 Batch 3**
+- [x] Footer navigation — **2026-08-02 Batch 3**
+- [x] `/our-warehouse` path alignment — **2026-08-02 Batch 3**
+- [x] Quotation CTAs on all core pages — **2026-08-02 Batch 3**
+- [x] Footer We Build Anything credit — **2026-08-02 Batch 3**
+- [x] Light desktop — **2026-08-02 Batch 3 (local)**
+- [x] Dark desktop — **2026-08-02 Batch 3 (local)**
+- [x] Light mobile — **2026-08-02 Batch 3 (local)**
+- [x] Dark mobile — **2026-08-02 Batch 3 (local)**
+- [x] Accessibility (nav current state, focus, touch targets) — **2026-08-02 Batch 3**
+- [x] Lint — **2026-08-02 Batch 3**
+- [x] Typecheck — **2026-08-02 Batch 3**
+- [x] Build — **2026-08-02 Batch 3**
+
+### Batch 4 — Legal, 404 and sitemap (2026-08-02)
+
+- [x] Privacy Policy — **2026-08-02 Batch 4**
+- [x] Terms and Conditions — **2026-08-02 Batch 4**
+- [x] Cookie Policy — **2026-08-02 Batch 4**
+- [x] Verified legal identity — **2026-08-02 Batch 4**
+- [x] Zapa technology-operator disclosure — **2026-08-02 Batch 4**
+- [x] Legal footer disclosure — **2026-08-02 Batch 4**
+- [x] Legal navigation — **2026-08-02 Batch 4**
+- [x] Quotation privacy link — **2026-08-02 Batch 4**
+- [x] Custom 404 — **2026-08-02 Batch 4**
+- [x] Sitemap — **2026-08-02 Batch 4**
+- [x] Preview robots/noindex preservation — **2026-08-02 Batch 4**
+- [x] Legal page metadata — **2026-08-02 Batch 4**
+- [x] Light desktop (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Dark desktop (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Light mobile (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Dark mobile (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Accessibility — **2026-08-02 Batch 4**
+- [x] Route validation — **2026-08-02 Batch 4**
+- [x] Link validation — **2026-08-02 Batch 4**
+- [x] Sitemap validation — **2026-08-02 Batch 4**
+- [x] Lint — **2026-08-02 Batch 4**
+- [x] Typecheck — **2026-08-02 Batch 4**
+- [x] Build — **2026-08-02 Batch 4**
+- [ ] Independent legal review
+- [x] Phase 4/9 legal report — **2026-08-02 Batch 4**
 
 ### Git (Product Owner only)
 
@@ -572,6 +625,7 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [x] Client-side usability validation
 - [x] Server-side authoritative validation
 - [x] Turnstile integration (local boundary; live verification pending)
+- [x] Launch path: Turnstile removed from active quotation flow — **2026-08-02 Batch 1**
 - [x] Quotation API endpoint
 - [x] Reference generation
 - [x] Success state
@@ -603,6 +657,13 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [x] Review and consent step verified
 - [x] Product Owner local browser validation — **PASSED — 2026-08-01**
 - [x] Session draft cleared after successful submission
+- [x] Launch form no longer contains Turnstile — **2026-08-02 Batch 1**
+- [x] Launch form has no development verification — **2026-08-02 Batch 1**
+- [x] Valid quote persists without verification token — **2026-08-02 Batch 1**
+- [x] Honeypot remains active — **2026-08-02 Batch 1**
+- [x] Notification attempts created on submission — **2026-08-02 Batch 1**
+- [x] Light-mode quotation form presentation — **2026-08-02 Batch 2**
+- [x] Light-mode form error states readable — **2026-08-02 Batch 2**
 
 ### Mobile validation
 
@@ -614,7 +675,7 @@ Report: `docs/phase-reports/PHASE_3B1_LOCAL_DATABASE_MIGRATION_AND_PERSISTENCE_R
 - [ ] Staging migration deployed
 - [ ] Production migration deployed
 - [ ] Transactional email provider configured
-- [ ] Live Turnstile verified in staging/production
+- [ ] Live Turnstile verified in staging/production (deferred to Phase 9)
 - [ ] Production rate limiting complete
 - [ ] Privacy Policy implemented
 - [ ] Retention period approved
@@ -666,14 +727,17 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 ### Implementation tasks
 
-- [ ] External email provider configured
+- [x] Resend package added — **2026-08-02 Batch 1**
+- [x] Resend transport implemented — **2026-08-02 Batch 1**
+- [x] Customer confirmation email template (plain text) — **2026-08-02 Batch 1**
+- [x] PackSendGo internal notification template (plain text) — **2026-08-02 Batch 1**
+- [x] Email dispatch on successful submission — **2026-08-02 Batch 1**
+- [x] Failure logging to `QuoteNotificationAttempt` — **2026-08-02 Batch 1**
+- [x] Behaviour when email fails after database save verified — **2026-08-02 Batch 1**
+- [x] Persistence before email delivery — **2026-08-02 Batch 1**
+- [ ] External email provider configured on Hostinger
 - [ ] Sender domain verification (SPF, DKIM, DMARC)
-- [ ] Customer confirmation email template
-- [ ] PackSendGo internal notification template
-- [ ] Email dispatch on successful submission
-- [ ] Failure logging to `QuoteNotificationAttempt` or equivalent
-- [ ] Behaviour when email fails after database save verified
-- [ ] Test emails sent and reviewed
+- [ ] Test emails sent and reviewed on Hostinger
 
 ### Validation
 
@@ -710,9 +774,9 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 ### Implementation tasks
 
-- [ ] Page metadata on all public routes
-- [ ] Sitemap generated
-- [ ] `robots.txt` configured
+- [x] Page metadata on all public routes — **2026-08-02 Batch 3/4**
+- [x] Sitemap generated — **2026-08-02 Batch 4**
+- [x] `robots.txt` configured — **2026-08-02 Batch 4**
 - [ ] Structured data where applicable
 - [ ] Keyboard accessibility verified
 - [ ] Focus management on form steps
@@ -814,7 +878,7 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 - [ ] Production rate limiting
 - [ ] Custom domain
 - [ ] SSL/domain validation
-- [ ] Light-mode correction
+- [ ] Light-mode correction — locally corrected **2026-08-02 Batch 2**; hosted validation pending
 - [ ] Public indexing
 - [ ] Public launch
 

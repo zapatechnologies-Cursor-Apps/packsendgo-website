@@ -20,12 +20,14 @@ export interface EmailTransport {
 export function getEmailConfigurationStatus() {
   const from = process.env.EMAIL_FROM?.trim();
   const internalRecipient = process.env.QUOTE_NOTIFICATION_EMAIL?.trim();
-  const hasProvider = Boolean(from && internalRecipient);
+  const resendApiKey = process.env.RESEND_API_KEY?.trim();
+  const isConfigured = Boolean(from && internalRecipient && resendApiKey);
 
   return {
     from,
     internalRecipient,
-    isConfigured: hasProvider,
+    resendApiKey: isConfigured ? resendApiKey : undefined,
+    isConfigured,
   };
 }
 

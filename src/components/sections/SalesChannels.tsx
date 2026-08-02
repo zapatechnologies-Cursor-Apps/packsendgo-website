@@ -11,7 +11,7 @@ export function SalesChannels() {
     >
       <Container>
         <SectionHeading
-          title="Built around the way you sell"
+          title="Built for how you sell"
           description="We assess your sales channels and order workflow during onboarding, then agree the most suitable operational setup for your business."
           align="center"
         />

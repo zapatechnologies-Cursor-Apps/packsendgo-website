@@ -12,7 +12,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="border-t border-outline/10 bg-surface-container py-16 md:py-20"
+      className="border-t border-outline/10 bg-surface-container py-section-gap-mobile md:py-20"
       aria-labelledby="how-it-works-heading"
     >
       <Container>
@@ -37,7 +37,7 @@ export function HowItWorks() {
                     className={cn(
                       "mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border",
                       index === activeIndex
-                        ? "border-signal-lime bg-signal-lime text-midnight-graphite"
+                        ? "border-signal-lime bg-signal-lime text-on-lime"
                         : "border-cobalt/40 bg-background text-on-surface",
                     )}
                     aria-current={index === activeIndex ? "step" : undefined}

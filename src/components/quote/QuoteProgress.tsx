@@ -15,7 +15,7 @@ export function QuoteProgress({ currentStep }: { currentStep: number }) {
               className={cn(
                 "border px-3 py-3 text-sm",
                 active
-                  ? "border-signal-lime bg-surface-container/60 text-on-surface"
+                  ? "border-signal-lime bg-surface-container/60 text-on-surface shadow-elevated"
                   : complete
                     ? "border-outline/25 text-on-surface-variant"
                     : "border-outline/15 text-on-surface-variant",

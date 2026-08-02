@@ -10,9 +10,9 @@ export const QuoteSubmissionError = forwardRef<
       tabIndex={-1}
       role="alert"
       aria-labelledby="quote-error-summary-title"
-      className="border border-red-400/40 bg-red-950/20 p-4 text-sm text-red-200"
+      className="border border-error-border bg-error-background p-4 text-sm text-error-foreground"
     >
-      <p id="quote-error-summary-title" className="font-semibold text-red-100">
+      <p id="quote-error-summary-title" className="font-semibold text-error-title">
         {title}
       </p>
       <p className="mt-1">{message}</p>

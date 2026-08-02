@@ -13,7 +13,7 @@ export const mainNavigation = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "How It Works", href: "/how-it-works" },
-  { label: "Our Warehouse", href: "/warehouse" },
+  { label: "Our Warehouse", href: "/our-warehouse" },
   { label: "About", href: "/about" },
   { label: "Get a Quote", href: "/get-a-quote" },
 ] as const;
@@ -21,13 +21,20 @@ export const mainNavigation = [
 export const footerNavigation = {
   company: [
     { label: "Services", href: "/services" },
-    { label: "How It Works", href: "/how-it-works" },
-    { label: "Our Warehouse", href: "/warehouse" },
-    { label: "About PackSendGo", href: "/about" },
+    { label: "How it works", href: "/how-it-works" },
+    { label: "Our warehouse", href: "/our-warehouse" },
+    { label: "About", href: "/about" },
+    { label: "Get a quote", href: "/get-a-quote" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms and Conditions", href: "/terms-and-conditions" },
     { label: "Cookie Policy", href: "/cookie-policy" },
-    { label: "Website Terms", href: "/terms" },
   ],
+} as const;
+
+export const siteCredit = {
+  label: "Website designed and built by We Build Anything",
+  linkText: "We Build Anything",
+  href: "https://zapatechnologies.com",
 } as const;
