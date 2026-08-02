@@ -423,36 +423,55 @@ Do not mark Phase 3A production complete until database, credentials, legal cont
 
 ### Authority check
 
-- [ ] Pages aligned with `docs/01_V1_SCOPE_AND_DEFERRED_FEATURES.md` §3
+- [x] Pages aligned with `docs/01_V1_SCOPE_AND_DEFERRED_FEATURES.md` §3 — **2026-08-02 Batch 3**
 
 ### Implementation tasks
 
-- [ ] Services page
-- [ ] How It Works page
-- [ ] Our Warehouse page (structure; media pending where required)
-- [ ] About PackSendGo page
+- [x] Services page — **2026-08-02 Batch 3**
+- [x] How It Works page — **2026-08-02 Batch 3**
+- [x] Our Warehouse page — **2026-08-02 Batch 3**
+- [x] About PackSendGo page — **2026-08-02 Batch 3**
 - [ ] Privacy Policy template
 - [ ] Cookie Policy template
 - [ ] Website Terms template
-- [ ] Internal linking and navigation complete
-- [ ] Automated validation passing
+- [x] Internal linking and navigation complete — **2026-08-02 Batch 3**
+- [x] Automated validation passing — **2026-08-02 Batch 3**
 
 ### Validation
 
-- [ ] Build and lint pass
-- [ ] No broken internal links
+- [x] Build and lint pass — **2026-08-02 Batch 3**
+- [x] No broken internal links (core pages) — **2026-08-02 Batch 3**
 
 ### Browser validation
 
-- [ ] All public pages reviewed on desktop
+- [x] All public pages reviewed on desktop — **2026-08-02 Batch 3 (local)**
 
 ### Mobile validation
 
-- [ ] All public pages reviewed on mobile
+- [x] All public pages reviewed on mobile — **2026-08-02 Batch 3 (local)**
 
 ### Documentation update
 
 - [ ] Legal content status updated in asset register
+- [x] Phase 4 core pages report — **2026-08-02 Batch 3**
+
+### Additional Batch 3 items
+
+- [x] Individual page metadata — **2026-08-02 Batch 3**
+- [x] Desktop navigation — **2026-08-02 Batch 3**
+- [x] Mobile navigation — **2026-08-02 Batch 3**
+- [x] Footer navigation — **2026-08-02 Batch 3**
+- [x] `/our-warehouse` path alignment — **2026-08-02 Batch 3**
+- [x] Quotation CTAs on all core pages — **2026-08-02 Batch 3**
+- [x] Footer We Build Anything credit — **2026-08-02 Batch 3**
+- [x] Light desktop — **2026-08-02 Batch 3 (local)**
+- [x] Dark desktop — **2026-08-02 Batch 3 (local)**
+- [x] Light mobile — **2026-08-02 Batch 3 (local)**
+- [x] Dark mobile — **2026-08-02 Batch 3 (local)**
+- [x] Accessibility (nav current state, focus, touch targets) — **2026-08-02 Batch 3**
+- [x] Lint — **2026-08-02 Batch 3**
+- [x] Typecheck — **2026-08-02 Batch 3**
+- [x] Build — **2026-08-02 Batch 3**
 
 ### Git (Product Owner only)
 

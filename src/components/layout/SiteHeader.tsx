@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PackSendGoLogo } from "@/components/brand/PackSendGoLogo";
 import { MobileNavigation } from "@/components/layout/MobileNavigation";
+import { NavLink } from "@/components/layout/NavLink";
 import { ThemeMenu } from "@/components/theme/ThemeMenu";
 import { mainNavigation } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -17,16 +18,17 @@ export function SiteHeader() {
           <ul className="flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item.href}>
-                <Link
+                <NavLink
                   href={item.href}
                   className={cn(
                     "text-sm font-medium text-on-surface-variant transition-colors",
                     "hover:text-on-surface focus-visible:outline focus-visible:outline-2",
                     "focus-visible:outline-offset-4 focus-visible:outline-cobalt",
                   )}
+                  activeClassName="text-on-surface"
                 >
                   {item.label}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>

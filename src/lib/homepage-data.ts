@@ -17,7 +17,7 @@ export const capabilities = [
     description:
       "Structured storage for your products with receiving, indexing and stock organisation suited to your catalogue.",
     benefit: "More predictable stock handling without fixed warehouse overheads.",
-    href: "/services#warehousing",
+    href: "/services#warehousing-storage",
     image: "/images/homepage/capability-warehousing-storage.jpg",
     imageAlt: "Organised warehouse shelving holding boxed stock and pallets",
     objectPosition: "center center",
@@ -40,7 +40,7 @@ export const capabilities = [
     description:
       "Reliable parcel dispatch with agreed cut-offs, carrier selection and delivery coverage confirmed during onboarding.",
     benefit: "A clearer dispatch rhythm for your customer promise.",
-    href: "/services#dispatch",
+    href: "/services#parcel-dispatch",
     image: "/images/homepage/capability-parcel-dispatch.jpg",
     imageAlt:
       "Delivery team loading boxed parcels into a dispatch vehicle",
@@ -52,7 +52,7 @@ export const capabilities = [
     description:
       "Structured returns handling with inspection, restocking or disposal workflows agreed for your operation.",
     benefit: "More controlled returns without disrupting fulfilment flow.",
-    href: "/services#returns",
+    href: "/services#returns-processing",
     image: "/images/homepage/capability-returns-processing.jpg",
     imageAlt:
       "Warehouse worker inspecting boxed parcels during stock processing",

@@ -1,5 +1,6 @@
 "use client";
 
+import { NavLink } from "@/components/layout/NavLink";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { mainNavigation } from "@/lib/site";
@@ -63,7 +64,7 @@ export function MobileNavigation({ quoteHref = "/get-a-quote" }: MobileNavigatio
             <ul className="space-y-1">
               {mainNavigation.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <NavLink
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
@@ -71,9 +72,10 @@ export function MobileNavigation({ quoteHref = "/get-a-quote" }: MobileNavigatio
                       "hover:bg-surface-container-high focus-visible:outline focus-visible:outline-2",
                       "focus-visible:outline-offset-2 focus-visible:outline-cobalt",
                     )}
+                    activeClassName="bg-surface-container-high"
                   >
                     {item.label}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>

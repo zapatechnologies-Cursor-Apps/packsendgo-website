@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PackSendGoLogo } from "@/components/brand/PackSendGoLogo";
-import { footerNavigation, siteConfig } from "@/lib/site";
+import { NavLink } from "@/components/layout/NavLink";
+import { footerNavigation, siteConfig, siteCredit } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function SiteFooter() {
@@ -22,25 +23,18 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {footerNavigation.company.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <NavLink
                     href={item.href}
                     className={cn(
                       "text-sm text-on-surface-variant hover:text-on-surface",
                       "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt",
                     )}
+                    activeClassName="text-on-surface"
                   >
                     {item.label}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/get-a-quote"
-                  className="text-sm text-on-surface-variant hover:text-on-surface"
-                >
-                  Get a Quote
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -53,7 +47,10 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-on-surface-variant hover:text-on-surface"
+                    className={cn(
+                      "text-sm text-on-surface-variant hover:text-on-surface",
+                      "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt",
+                    )}
                   >
                     {item.label}
                   </Link>
@@ -63,9 +60,22 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="mt-10 border-t border-outline/10 pt-6 text-xs text-on-surface-variant">
-          © PackSendGo. All rights reserved.
-        </p>
+        <div className="mt-10 space-y-2 border-t border-outline/10 pt-6">
+          <p className="text-xs text-on-surface-variant">
+            © PackSendGo. All rights reserved.
+          </p>
+          <p className="text-xs text-on-surface-variant">
+            Website designed and built by{" "}
+            <a
+              href={siteCredit.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-on-surface-variant underline decoration-outline/40 underline-offset-2 hover:text-on-surface hover:decoration-outline/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt"
+            >
+              {siteCredit.linkText}
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
