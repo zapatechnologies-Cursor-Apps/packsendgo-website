@@ -455,3 +455,20 @@ The following were **not** modified in this task:
 - authority documents.
 
 No packages were installed. No external services were contacted. No Git commands were run from Cursor.
+
+---
+
+## Phase 10B addendum — Hostinger migration-build hotfix (2026-08-02)
+
+Following the first Hostinger deployment from GitHub `main`:
+
+| Finding | Detail |
+| --- | --- |
+| Hostinger build command constraint | Hostinger only allows `npm run build` |
+| Original deployed build sequence | `prisma generate && next build` — migrations were **not** executed |
+| Repository fix (Phase 10B) | Build script now runs `prisma migrate deploy && prisma generate && next build` |
+| Production migration status | **Unverified on Hostinger** until the updated commit is redeployed; **local migration-build validation passed** (Product Owner evidence, 2026-08-02) |
+| Local validation blocker | **Resolved** — Docker Desktop running; `packsendgo-mysql-local` healthy; double `npm run build` passed |
+| Node engine warning | Hostinger reported Node **22.18.0** while `package.json` declares `>=24 <25`; application build passed under Node 22.18.0, but engine reconciliation remains a separate deployment warning |
+
+See `docs/phase-reports/PHASE_10B_HOSTINGER_DATABASE_MIGRATION_BUILD_REPORT.md` for full validation and redeployment procedure.
