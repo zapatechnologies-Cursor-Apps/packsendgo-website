@@ -431,11 +431,11 @@ Do not mark Phase 3A production complete until database, credentials, legal cont
 - [x] How It Works page — **2026-08-02 Batch 3**
 - [x] Our Warehouse page — **2026-08-02 Batch 3**
 - [x] About PackSendGo page — **2026-08-02 Batch 3**
-- [ ] Privacy Policy template
-- [ ] Cookie Policy template
-- [ ] Website Terms template
-- [x] Internal linking and navigation complete — **2026-08-02 Batch 3**
-- [x] Automated validation passing — **2026-08-02 Batch 3**
+- [x] Privacy Policy template — **2026-08-02 Batch 4**
+- [x] Cookie Policy template — **2026-08-02 Batch 4**
+- [x] Website Terms template — **2026-08-02 Batch 4**
+- [x] Internal linking and navigation complete — **2026-08-02 Batch 4**
+- [x] Automated validation passing — **2026-08-02 Batch 4**
 
 ### Validation
 
@@ -472,6 +472,34 @@ Do not mark Phase 3A production complete until database, credentials, legal cont
 - [x] Lint — **2026-08-02 Batch 3**
 - [x] Typecheck — **2026-08-02 Batch 3**
 - [x] Build — **2026-08-02 Batch 3**
+
+### Batch 4 — Legal, 404 and sitemap (2026-08-02)
+
+- [x] Privacy Policy — **2026-08-02 Batch 4**
+- [x] Terms and Conditions — **2026-08-02 Batch 4**
+- [x] Cookie Policy — **2026-08-02 Batch 4**
+- [x] Verified legal identity — **2026-08-02 Batch 4**
+- [x] Zapa technology-operator disclosure — **2026-08-02 Batch 4**
+- [x] Legal footer disclosure — **2026-08-02 Batch 4**
+- [x] Legal navigation — **2026-08-02 Batch 4**
+- [x] Quotation privacy link — **2026-08-02 Batch 4**
+- [x] Custom 404 — **2026-08-02 Batch 4**
+- [x] Sitemap — **2026-08-02 Batch 4**
+- [x] Preview robots/noindex preservation — **2026-08-02 Batch 4**
+- [x] Legal page metadata — **2026-08-02 Batch 4**
+- [x] Light desktop (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Dark desktop (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Light mobile (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Dark mobile (legal pages) — **2026-08-02 Batch 4 (local)**
+- [x] Accessibility — **2026-08-02 Batch 4**
+- [x] Route validation — **2026-08-02 Batch 4**
+- [x] Link validation — **2026-08-02 Batch 4**
+- [x] Sitemap validation — **2026-08-02 Batch 4**
+- [x] Lint — **2026-08-02 Batch 4**
+- [x] Typecheck — **2026-08-02 Batch 4**
+- [x] Build — **2026-08-02 Batch 4**
+- [ ] Independent legal review
+- [x] Phase 4/9 legal report — **2026-08-02 Batch 4**
 
 ### Git (Product Owner only)
 
@@ -746,9 +774,9 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 ### Implementation tasks
 
-- [ ] Page metadata on all public routes
-- [ ] Sitemap generated
-- [ ] `robots.txt` configured
+- [x] Page metadata on all public routes — **2026-08-02 Batch 3/4**
+- [x] Sitemap generated — **2026-08-02 Batch 4**
+- [x] `robots.txt` configured — **2026-08-02 Batch 4**
 - [ ] Structured data where applicable
 - [ ] Keyboard accessibility verified
 - [ ] Focus management on form steps

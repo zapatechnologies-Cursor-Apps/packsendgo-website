@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PackSendGoLogo } from "@/components/brand/PackSendGoLogo";
 import { NavLink } from "@/components/layout/NavLink";
+import { denzilDealsLtd, zapaTechnologiesLtd } from "@/lib/legal-data";
 import { footerNavigation, siteConfig, siteCredit } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -61,9 +62,15 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 space-y-2 border-t border-outline/10 pt-6">
-          <p className="text-xs text-on-surface-variant">
-            © PackSendGo. All rights reserved.
+          <p className="text-xs leading-relaxed text-on-surface-variant">
+            PackSendGo is operated by {denzilDealsLtd.legalName}, company number{" "}
+            {denzilDealsLtd.companyNumber}.
           </p>
+          <p className="text-xs leading-relaxed text-on-surface-variant">
+            Website technology operated and managed by {zapaTechnologiesLtd.legalName}, company
+            number {zapaTechnologiesLtd.companyNumber}.
+          </p>
+          <p className="text-xs text-on-surface-variant">© PackSendGo. All rights reserved.</p>
           <p className="text-xs text-on-surface-variant">
             Website designed and built by{" "}
             <a
