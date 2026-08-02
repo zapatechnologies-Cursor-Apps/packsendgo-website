@@ -1,11 +1,13 @@
 import { EmailAttemptStatus, EmailAttemptType, Prisma } from "@prisma/client";
-import { createEmailTransport } from "@/lib/email/transport";
 import {
-  buildCustomerEmail,
-  buildInternalEmail,
-  getEmailConfigurationStatus,
-} from "@/lib/email/types";
+  buildCustomerQuotationEmail,
+  buildInternalQuotationEmail,
+} from "@/lib/email/quotation-email";
+import { createEmailTransport } from "@/lib/email/transport";
+import { getEmailConfigurationStatus } from "@/lib/email/types";
+import { generateQuotationRequestPdf } from "@/lib/pdf/quotation-request-pdf";
 import { prisma } from "@/lib/prisma";
+import { buildQuotationDocument } from "@/lib/quote/quotation-document";
 import { generateQuoteReference } from "@/lib/quote/reference";
 import type { QuoteSubmissionPayload } from "@/lib/quote/schema";
 import { quoteSubmissionPayloadSchema } from "@/lib/quote/schema";
@@ -145,29 +147,41 @@ export async function submitQuote(
     const transport = createEmailTransport();
     const fromAddress = emailConfig.from ?? "development-log@local";
     const internalRecipient = emailConfig.internalRecipient ?? "development-log@local";
-    const customerMessage = buildCustomerEmail(persisted, quote.publicReference, fromAddress);
-    const internalMessage = buildInternalEmail(
-      persisted,
-      quote.publicReference,
+    const documentSource = {
+      values: persisted,
+      reference: quote.publicReference,
+      submittedAt: now,
+      privacyConsentAt: now,
+      marketingConsentAt: persisted.marketingConsent ? now : null,
+      accuracyConfirmationAt: now,
+    };
+    const internalViewModel = buildQuotationDocument(documentSource, "internal");
+    const customerViewModel = buildQuotationDocument(documentSource, "customer");
+
+    let internalPdf: Buffer | undefined;
+    try {
+      internalPdf = await generateQuotationRequestPdf(internalViewModel);
+    } catch {
+      console.warn(
+        `[quote-pdf] internal generation failed reference=${quote.publicReference} attachment=skipped`,
+      );
+    }
+
+    let customerPdf: Buffer | undefined;
+    try {
+      customerPdf = await generateQuotationRequestPdf(customerViewModel);
+    } catch {
+      console.warn(
+        `[quote-pdf] customer generation failed reference=${quote.publicReference} attachment=skipped`,
+      );
+    }
+
+    const internalMessage = buildInternalQuotationEmail({
+      viewModel: internalViewModel,
       fromAddress,
       internalRecipient,
-    );
-
-    const customerResult = await transport.send(customerMessage);
-    await prisma.quoteNotificationAttempt.create({
-      data: {
-        quoteRequestId: quote.id,
-        emailType: EmailAttemptType.CUSTOMER,
-        status:
-          customerResult.status === "SENT"
-            ? EmailAttemptStatus.SENT
-            : customerResult.status === "LOGGED"
-              ? EmailAttemptStatus.LOGGED
-              : EmailAttemptStatus.FAILED,
-        providerResponse: customerResult.providerResponse,
-      },
+      pdfAttachment: internalPdf,
     });
-
     const internalResult = await transport.send(internalMessage);
     await prisma.quoteNotificationAttempt.create({
       data: {
@@ -180,6 +194,26 @@ export async function submitQuote(
               ? EmailAttemptStatus.LOGGED
               : EmailAttemptStatus.FAILED,
         providerResponse: internalResult.providerResponse,
+      },
+    });
+
+    const customerMessage = buildCustomerQuotationEmail({
+      viewModel: customerViewModel,
+      fromAddress,
+      pdfAttachment: customerPdf,
+    });
+    const customerResult = await transport.send(customerMessage);
+    await prisma.quoteNotificationAttempt.create({
+      data: {
+        quoteRequestId: quote.id,
+        emailType: EmailAttemptType.CUSTOMER,
+        status:
+          customerResult.status === "SENT"
+            ? EmailAttemptStatus.SENT
+            : customerResult.status === "LOGGED"
+              ? EmailAttemptStatus.LOGGED
+              : EmailAttemptStatus.FAILED,
+        providerResponse: customerResult.providerResponse,
       },
     });
 

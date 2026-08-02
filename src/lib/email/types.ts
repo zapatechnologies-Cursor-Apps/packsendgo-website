@@ -1,4 +1,8 @@
-import type { QuoteFormValues } from "@/lib/quote/schema";
+export type EmailAttachment = {
+  filename: string;
+  content: Buffer;
+  contentType: string;
+};
 
 export type EmailMessage = {
   to: string;
@@ -6,6 +10,9 @@ export type EmailMessage = {
   replyTo?: string;
   subject: string;
   text: string;
+  html?: string;
+  attachments?: EmailAttachment[];
+  idempotencyKey?: string;
 };
 
 export type EmailDeliveryResult = {
@@ -29,52 +36,4 @@ export function getEmailConfigurationStatus() {
     resendApiKey: isConfigured ? resendApiKey : undefined,
     isConfigured,
   };
-}
-
-export function buildCustomerEmail(
-  values: QuoteFormValues,
-  reference: string,
-  fromAddress: string,
-): EmailMessage {
-  return {
-    to: values.email,
-    from: fromAddress,
-    subject: `PackSendGo quotation request received — ${reference}`,
-    text: [
-      SUCCESS_INTRO(reference),
-      "",
-      `Name: ${values.contactName}`,
-      `Company: ${values.companyName}`,
-      "",
-      "PackSendGo will review your requirements and respond manually.",
-      "No binding price is included in this acknowledgement.",
-    ].join("\n"),
-  };
-}
-
-export function buildInternalEmail(
-  values: QuoteFormValues,
-  reference: string,
-  fromAddress: string,
-  internalRecipient: string,
-): EmailMessage {
-  return {
-    to: internalRecipient,
-    from: fromAddress,
-    replyTo: values.email,
-    subject: `New PackSendGo quotation enquiry — ${reference}`,
-    text: [
-      `Reference: ${reference}`,
-      `Company: ${values.companyName}`,
-      `Contact: ${values.contactName}`,
-      `Email: ${values.email}`,
-      `Telephone: ${values.telephone}`,
-      "",
-      "Full structured data is stored in the quotation database record.",
-    ].join("\n"),
-  };
-}
-
-function SUCCESS_INTRO(reference: string) {
-  return `Thank you. Your quotation request ${reference} has been received.`;
 }

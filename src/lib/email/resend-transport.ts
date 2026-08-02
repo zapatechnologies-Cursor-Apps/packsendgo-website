@@ -10,13 +10,22 @@ export class ResendTransport implements EmailTransport {
 
   async send(message: EmailMessage): Promise<EmailDeliveryResult> {
     try {
-      const result = await this.client.emails.send({
-        from: message.from,
-        to: message.to,
-        replyTo: message.replyTo,
-        subject: message.subject,
-        text: message.text,
-      });
+      const result = await this.client.emails.send(
+        {
+          from: message.from,
+          to: message.to,
+          replyTo: message.replyTo,
+          subject: message.subject,
+          text: message.text,
+          html: message.html,
+          attachments: message.attachments?.map((attachment) => ({
+            filename: attachment.filename,
+            content: attachment.content,
+            contentType: attachment.contentType,
+          })),
+        },
+        message.idempotencyKey ? { idempotencyKey: message.idempotencyKey } : undefined,
+      );
 
       if (result.error) {
         console.error("[quote-email:resend]", result.error.message);

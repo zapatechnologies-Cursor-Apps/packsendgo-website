@@ -3,7 +3,11 @@ import type { EmailDeliveryResult, EmailMessage, EmailTransport } from "@/lib/em
 import { getEmailConfigurationStatus } from "@/lib/email/types";
 
 function redactSummary(message: EmailMessage): string {
-  return `[${message.subject}] to=${message.to}`;
+  const attachmentCount = message.attachments?.length ?? 0;
+  const attachmentNames = message.attachments?.map((attachment) => attachment.filename).join(", ") ?? "none";
+  const attachmentBytes =
+    message.attachments?.reduce((total, attachment) => total + attachment.content.length, 0) ?? 0;
+  return `[${message.subject}] attachments=${attachmentCount} names=${attachmentNames} bytes=${attachmentBytes} html=${message.html ? "yes" : "no"}`;
 }
 
 export class DevelopmentLoggingTransport implements EmailTransport {

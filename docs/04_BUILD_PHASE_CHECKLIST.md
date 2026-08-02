@@ -735,6 +735,25 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 - [x] Failure logging to `QuoteNotificationAttempt` — **2026-08-02 Batch 1**
 - [x] Behaviour when email fails after database save verified — **2026-08-02 Batch 1**
 - [x] Persistence before email delivery — **2026-08-02 Batch 1**
+- [x] Complete internal structured email — **2026-08-02 Phase 8 patch**
+- [x] Complete customer structured email — **2026-08-02 Phase 8 patch**
+- [x] HTML email rendering — **2026-08-02 Phase 8 patch**
+- [x] Plain-text fallback from shared view model — **2026-08-02 Phase 8 patch**
+- [x] Internal PDF attachment generation — **2026-08-02 Phase 8 patch**
+- [x] Customer PDF attachment generation — **2026-08-02 Phase 8 patch**
+- [x] All 42 quotation fields mapped in document model — **2026-08-02 Phase 8 patch**
+- [x] All nine conditional-field rules handled — **2026-08-02 Phase 8 patch**
+- [x] HTML escaping at render boundary — **2026-08-02 Phase 8 patch**
+- [x] Attachment transport via Resend — **2026-08-02 Phase 8 patch**
+- [x] Customer Reply-To set to support@packsendgo.com — **2026-08-02 Phase 8 patch**
+- [x] Internal Reply-To set to customer email — **2026-08-02 Phase 8 patch**
+- [x] Independent internal and customer notification attempts — **2026-08-02 Phase 8 patch**
+- [x] PDF-failure fallback without blocking HTML email — **2026-08-02 Phase 8 patch**
+- [x] Email-failure isolation without quotation rollback — **2026-08-02 Phase 8 patch**
+- [x] Safe development transport logging — **2026-08-02 Phase 8 patch**
+- [x] Local lint, typecheck and Next.js build validation — **2026-08-02 Phase 8 patch**
+- [x] Local HTML and PDF synthetic validation — **2026-08-02 Phase 8 patch**
+- [x] Synthetic complete-payload validation — **2026-08-02 Phase 8 patch**
 - [ ] External email provider configured on Hostinger
 - [ ] Sender domain verification (SPF, DKIM, DMARC)
 - [ ] Test emails sent and reviewed on Hostinger
@@ -742,7 +761,11 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 ### Validation
 
 - [ ] Emails deliver to test inboxes
-- [ ] No secrets in templates committed to Git
+- [x] No secrets in templates committed to Git — **2026-08-02 Phase 8 patch**
+- [ ] Production Resend delivery verified
+- [ ] Production attachment delivery verified
+- [ ] Production customer email reviewed
+- [ ] Production internal email reviewed
 
 ### Browser validation
 
@@ -754,6 +777,7 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 ### Documentation update
 
+- [x] Phase 8 full quotation email and PDF implementation report — **2026-08-02 Phase 8 patch**
 - [ ] Email provider and DNS recorded in deployment plan
 
 ### Git (Product Owner only)
