@@ -13,6 +13,7 @@ import { QuoteSubmissionError } from "@/components/quote/QuoteSubmissionError";
 import { QuoteSuccess } from "@/components/quote/QuoteSuccess";
 import { applyZodErrors, validateWithSchema } from "@/lib/quote/client-validation";
 import { QUOTE_STEPS } from "@/lib/quote/constants";
+import { normaliseWebsite } from "@/lib/quote/normalise-website";
 import {
   clearQuoteDraft,
   getOrCreateIdempotencyKey,
@@ -205,8 +206,16 @@ export function QuoteForm() {
     setLiveMessage("Submitting your quotation request.");
 
     try {
+      const values = getValues();
+      const trimmedWebsite = values.websiteUrl?.trim();
+      const websiteNormalisation = trimmedWebsite ? normaliseWebsite(trimmedWebsite) : null;
+
       const payload = {
-        ...getValues(),
+        ...values,
+        websiteUrl:
+          trimmedWebsite && websiteNormalisation?.ok
+            ? websiteNormalisation.url
+            : values.websiteUrl,
         idempotencyKey: getOrCreateIdempotencyKey(),
         turnstileToken,
         website: honeypot,

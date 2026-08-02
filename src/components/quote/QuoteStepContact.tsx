@@ -36,8 +36,21 @@ export function QuoteStepContact({ form }: StepProps) {
       >
         <TextInput id="telephone" type="tel" autoComplete="tel" inputMode="tel" {...register("telephone")} />
       </Field>
-      <Field label="Website or store URL" htmlFor="websiteUrl" optional error={errors.websiteUrl?.message}>
-        <TextInput id="websiteUrl" type="url" autoComplete="url" {...register("websiteUrl")} />
+      <Field
+        label="Website or store URL"
+        htmlFor="websiteUrl"
+        optional
+        hint="www and https:// are optional."
+        error={errors.websiteUrl?.message}
+      >
+        <TextInput
+          id="websiteUrl"
+          type="text"
+          inputMode="url"
+          autoComplete="url"
+          placeholder="example.com"
+          {...register("websiteUrl")}
+        />
       </Field>
       <Field label="Country" htmlFor="country" error={errors.country?.message}>
         <SelectInput id="country" defaultValue="" {...register("country")}>
