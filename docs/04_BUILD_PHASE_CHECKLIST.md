@@ -735,6 +735,33 @@ Do not mark Phase 7 fully production complete until Hostinger, credentials, lega
 
 **Phase 10A status: PRIVATE HOSTINGER PREVIEW PREPARED — DEPLOYMENT AND HOSTED INTEGRATIONS PENDING**
 
+**Phase 10B status: HOSTINGER MIGRATION-BUILD HOTFIX VALIDATED — HOSTED MIGRATION PENDING REDEPLOYMENT**
+
+### Phase 10B — Hostinger database migration build hotfix
+
+#### Implementation
+
+- [x] Repository build invokes `prisma migrate deploy`
+- [x] Prisma Client generation remains in build
+- [x] Next.js production build remains in build
+- [x] Local migration execution passed
+- [x] Repeated migration execution is idempotent
+- [x] Lint passed
+- [x] Typecheck passed
+- [x] Production build passed twice
+
+#### Deferred (Phase 10B — remain incomplete)
+
+- [ ] Updated commit pushed to `main`
+- [ ] Hostinger automatic redeployment
+- [ ] Hosted migration execution
+- [ ] Hosted `_prisma_migrations` verification
+- [ ] Hosted `QuoteRequest` verification
+- [ ] Hosted `QuoteNotificationAttempt` verification
+- [ ] Hosted quotation submission
+- [ ] Node engine reconciliation
+- [ ] Public launch
+
 ### Phase 10A — Private Hostinger preview preparation
 
 #### Authority check
